@@ -4,6 +4,7 @@ import NavigationBar from "./NavigationBar";
 import StudyGroup from "./StudyGroup";
 import Items from "./Items";
 import MainPage from './MainPage';
+import Footer from './Footer';
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
                         </div>
                   </Switch>
             </BrowserRouter>
+            <Footer/>
         </div>
     );
   }

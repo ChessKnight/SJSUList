@@ -1,0 +1,14 @@
+.footer-format{
+    display:inline-flex;
+    list-style: none;
+    color: white;
+    align-content: left;
+}
+
+.footer-li{
+    border-left: 2px white solid;
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-left: 20px;
+    margin: 20px;
+}
