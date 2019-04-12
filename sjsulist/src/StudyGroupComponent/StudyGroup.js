@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import StudyGroupCard from "./StudyGroupCard";
+import StudyGroupForm from './StudyGroupForm';
 
 class StudyGroup extends Component {
 
@@ -8,7 +9,7 @@ class StudyGroup extends Component {
       <div>
         <p>this is from studygroup page</p>
         <StudyGroupCard/> 
-
+        <StudyGroupForm />
 
       </div>
     )
