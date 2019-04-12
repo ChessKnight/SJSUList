@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import ItemCardList from './ItemCardlistComponent/ItemCardList'
 
  class Items extends Component {
   render() {
     return (
     
      <div>
-         <p>this is from item page</p>
+         <ItemCardList/>
     </div>
       
     )
