@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import StudyGroupCard from "./StudyGroupCard";
 
 class StudyGroup extends Component {
 
@@ -6,6 +7,9 @@ class StudyGroup extends Component {
     return (
       <div>
         <p>this is from studygroup page</p>
+        <StudyGroupCard/> 
+
+
       </div>
     )
   }

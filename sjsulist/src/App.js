@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
-import StudyGroup from "./StudyGroup";
+import StudyGroup from "./StudyGroupComponent/StudyGroup";
 import Items from "./Items";
-import MainPage from './MainPage';
+import MainPage from './MainPage'; 
 import Footer from './Footer';
+
 
 
 class App extends Component {
 
   render() {
-    return (  
+    return ( 
+       
         <div className="App">
             <BrowserRouter>
                <NavigationBar />
@@ -22,6 +24,8 @@ class App extends Component {
                         </div>
                   </Switch>
             </BrowserRouter>
+            
+         
             <Footer/>
         </div>
     );
