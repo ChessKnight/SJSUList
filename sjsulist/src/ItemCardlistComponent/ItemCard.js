@@ -64,7 +64,7 @@ class ItemCard  extends React.Component{
           <CardHeader
             avatar={
               <Avatar aria-label="Recipe" className={classes.avatar}>
-                R
+                <img src="https://robohash.org/bruhsd" style={{width:'40px'}}></img>
               </Avatar>
             }
             action={
