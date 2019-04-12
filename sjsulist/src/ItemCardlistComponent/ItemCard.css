@@ -1,0 +1,47 @@
+.item-card{
+    display:flex;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 10px;
+}
+.item-first-sec{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 10px;
+    width: 200px;
+}
+
+.item-img{
+    height: 200px;
+    width: 200px;
+}
+.item-info{
+    display: list-item;
+}
+
+.item-seller{
+    margin: 2px;
+    display: flex;
+    align-items: baseline;
+}
+.item-desc{
+    display: flex;
+    align-items: baseline;
+    height: 90%;
+}
+.item-button{
+    display: flex;
+    align-items: baseline;
+}
+
+.add-button{
+    margin:5px;
+    padding: 2px;
+    font-size: 7pt;
+}
+
+.item-second-sec{
+    margin:10px;
+    width:150px;
+}
+.book-mark{
+    cursor: pointer;
+}
