@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
 import StudyGroup from "./StudyGroupComponent/StudyGroup";
-import Items from "./Items";
+import Items from "./ItemCardlistComponent/ItemCardList";
 import MainPage from './MainPage'; 
 import Footer from './Footer';
 
