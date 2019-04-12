@@ -23,12 +23,8 @@ const ItemCardList = () =>{
             <li><ItemCard/></li>
             <li><ItemCard/></li>
         </ul>
-<<<<<<< HEAD
 
-            
-=======
-        <Pager/>
->>>>>>> 0645de9d22cf58c2ccc25792b76daa67d5512f2d
+            <Pager></Pager>
     </div>
     );
 }
