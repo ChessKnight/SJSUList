@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemCard from './ItemCard';
 import './ItemCardList.css';
+import Pager from '../PagerComponent/Pager'
 
 const ItemCardList = () =>{
     return(
@@ -17,18 +18,7 @@ const ItemCardList = () =>{
             <li><ItemCard/></li>
             <li><ItemCard/></li>
         </ul>
-        <div >
-            <ul class="pagination pager">
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                <li class="active"><a href="#!">1</a></li>
-                <li class="waves-effect"><a href="#!">2</a></li>
-                <li class="waves-effect"><a href="#!">3</a></li>
-                <li class="waves-effect"><a href="#!">4</a></li>
-                <li class="waves-effect"><a href="#!">5</a></li>
-                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
-        </div>
-        
+        <Pager/>
     </div>
     );
 }
