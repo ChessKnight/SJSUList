@@ -42,6 +42,16 @@ class ItemForm extends Component {
                     </div>
                 </div>
 
+            {/* Price of item */}
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">attach_money</i>
+                        <input id="icon_telephone" type="number" class="validate"></input>
+                        <label for="icon_telephone">Item Price</label>
+                    </div>
+                </div>
+
+                
                 {/* Contact info */}
                 <div class="row">
                     <div class="input-field col s6">
@@ -58,7 +68,7 @@ class ItemForm extends Component {
 
                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                      <i class="material-icons right">send</i>
-                </button>
+                    </button>
 
 
                 </div>
