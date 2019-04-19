@@ -13,46 +13,64 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 1500,
+    margin:20,
   },
   media: {
     height: 140,
   },
+  typography:{
+    size: 10,
+
+  }
 };
 
 function StudyGroupCard(props) {
   const { classes } = props;
-  return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            CS151
-          </Typography>
-          <Typography component="p">
-            Hi this is Tahsin, does anyone wants to study together for the Object Oriented programming exam. I will be at the library on wednesday and thursday evening. 
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-          <Typography gutterBottom variant="h6" component="h6">
-          User
-          </Typography>
-          <Typography gutterBottom variant="h6" component="h6">
-          4/12/2019
-          </Typography>
 
-      </CardActions>
-      <CardActions>
-        <Button size="small" color="primary">
-          Join Study Group
-          </Button>
-        <Button size="small" color="primary">
-          Delete post
-          </Button>
-      </CardActions>
-    </Card>
+  return(
+    <div>
+      {
+        props.value.map((user,i)=>{
+          return (
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                  {props.value[i].title}
+                  </Typography>
+                  <Typography component="p">
+                  {props.value[i].body}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                  <Typography gutterBottom variant="h8" component="h9">
+                  Owner: {props.value[i].userId}
+                  </Typography>
+                  
+        
+              </CardActions>
+              <CardActions>
+                <Typography gutterBottom variant="h8" component="h9">
+                  Members: 
+                  </Typography>
+              </CardActions>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Join Study Group
+                  </Button>
+                <Button size="small" color="primary">
+                  Delete post
+                  </Button>
+              </CardActions>
+            </Card>
+          );
+        })
+      }
+    </div>
   );
+  
 }
 
 StudyGroupCard.propTypes = {
