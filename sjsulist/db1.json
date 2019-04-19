@@ -1,0 +1,36 @@
+{
+  "itemlist": [
+    {
+      "id": "1",
+      "itemName": "laptop",
+      "description": "Something",
+      "price": "3214",
+      "name": "Saad",
+      "contact": "528907"
+    },
+    {
+      "id": "2",
+      "itemName": "laptop",
+      "description": "Something",
+      "price": "3214",
+      "name": "Tahsin",
+      "contact": "528907"
+    },
+    {
+      "id": "3",
+      "itemName": "jorge",
+      "description": "Something",
+      "price": "3214",
+      "name": "Atif",
+      "contact": "528907"
+    },
+    {
+      "id": "4",
+      "itemName": "FLorida",
+      "description": "Something",
+      "price": "3214",
+      "name": "Atif",
+      "contact": "528907"
+    }
+  ]
+}
