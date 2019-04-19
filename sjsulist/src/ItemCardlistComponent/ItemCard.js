@@ -50,7 +50,7 @@ const styles = theme => ({
   },
 });
 class ItemCard  extends React.Component{
-    state = { expanded: false };
+    state = { expanded: false};
 
     handleExpandClick = () => {
       this.setState(state => ({ expanded: !state.expanded }));
@@ -58,13 +58,15 @@ class ItemCard  extends React.Component{
   
     render() {
       const { classes } = this.props;
+      const imgpic = "https://robohash.org/a" + this.props.userId;
   
       return (
         <Card className={classes.card}>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
           <CardHeader
             avatar={
               <Avatar aria-label="Recipe" className={classes.avatar}>
-                <img alt="robo friends user"src="https://robohash.org/bruhsd" style={{width:'40px'}}></img>
+                <img alt="robo friends user"src={imgpic} style={{width:'40px'}}></img>
               </Avatar>
             }
             action={
@@ -72,7 +74,7 @@ class ItemCard  extends React.Component{
                 <MoreVertIcon />
               </IconButton>
             }
-            title="Shrimp and Chorizo Paella"
+            title={this.props.userId}
             subheader="September 14, 2016"
           />
           <CardMedia
@@ -82,8 +84,7 @@ class ItemCard  extends React.Component{
           />
           <CardContent>
             <Typography component="p">
-              This impressive paella is a perfect party dish and a fun meal to cook together with your
-              guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            {this.props.body}
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} disableActionSpacing>
