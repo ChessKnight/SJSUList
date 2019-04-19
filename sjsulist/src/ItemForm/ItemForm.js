@@ -11,7 +11,7 @@ class ItemForm extends Component {
             <form action="#">
 
                 {/* Image Upload */}
-                <div class="file-field input-field">
+                <div class="file-field input-field s4">
 
                     <div class="btn">
                         <span>File</span>
@@ -26,44 +26,44 @@ class ItemForm extends Component {
 
                 {/* Name of item */}
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s10">
                     <i class="material-icons prefix"> description</i>
                         <input placeholder="Item" id="first_name" type="text" class="validate"></input>
-                        <label for="Name of Item">Name Of Item</label>
+                       
                     </div>
                 </div>
             
             {/* Item Description */}
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s10">
                         <i class="material-icons prefix"> description</i>
-                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-                        <label for="textarea2">Item description</label>
+                        <textarea placeholder="Description" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        
                     </div>
                 </div>
 
             {/* Price of item */}
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s10">
                         <i class="material-icons prefix">attach_money</i>
-                        <input id="icon_telephone" type="number" class="validate"></input>
-                        <label for="icon_telephone">Item Price</label>
+                        <input placeholder="Price" id="icon_telephone" type="number" class="validate"></input>
+                        
                     </div>
                 </div>
 
                 
                 {/* Contact info */}
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s10">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="icon_prefix" type="text" class="validate"></input>
-                        <label for="icon_prefix">Your Name</label>
+                        <input placeholder="Name" id="icon_prefix" type="text" class="validate"></input>
+                        
                     </div>
         
-                    <div class="input-field col s6">
+                    <div class="input-field col s10">
                         <i class="material-icons prefix">phone</i>
-                        <input id="icon_telephone" type="tel" class="validate"></input>
-                        <label for="icon_telephone">Contact#</label>
+                        <input placeholder="Phone" id="icon_telephone" type="tel" class="validate"></input>
+                        
                     </div>
 
                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit

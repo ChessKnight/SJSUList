@@ -27,9 +27,12 @@ class ItemCardList extends Component{
     
         
         return(
-        <div>
+        <div className="card-list">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            
+            
+            <div>
             <ul class="store-list">
                 {this.state.data.map((user, i)=>{
                     return(
@@ -37,8 +40,11 @@ class ItemCardList extends Component{
                     );
                 })}
             </ul>
-
-                <Pager></Pager>
+            <Pager></Pager>
+            </div>
+            <div className="item-form">
+                <ItemForm></ItemForm>    
+            </div>    
         </div>
         );
     }

@@ -1,5 +1,18 @@
-.store-list{
+.card-list{
     display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+}
+.store-list{
+ display: flex;
+ flex-wrap: wrap;
+ max-width: 1000px;
+}
+
+.item-form{
+    width: 300px;
+    border: gray solid 2px;
+    border-radius: 6px;
+    max-height: 650px;
+    right: 20px;
+    scroll-behavior: smooth;
+    margin: 10px;
 }
