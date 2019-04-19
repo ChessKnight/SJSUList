@@ -1,3 +1,16 @@
-.study-group{
-   
+.add-group{
+  text-align: end;
+  margin: 20px;
+  max-width:100;
+  position: fixed;
+  float: right;
+  right: 10px;
+  border: solid gray 5px;
+  border-radius: 4px;
+}
+
+.study-groups{
+
+    display: flex;
+    align-items: baseline;
 }

@@ -21,9 +21,10 @@ class StudyGroup extends Component {
     const d = this.state.data;
     return (
       <div className="study-group">
-        <p>this is from studygroup page</p>
-        <StudyGroupCard value={d}/> 
-        <StudyGroupForm />
+         <div className="add-group"><StudyGroupForm></StudyGroupForm></div>
+         <StudyGroupCard value={d}/> 
+         
+       
 
       </div>
     )
