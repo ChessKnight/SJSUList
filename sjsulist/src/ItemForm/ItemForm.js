@@ -8,7 +8,7 @@ class ItemForm extends Component {
     return (
         <div>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-            <form action="#">
+            <form action="http://localhost:3000/itemlist" method="post">
 
                 {/* Image Upload */}
                 <div class="file-field input-field s4">
@@ -28,7 +28,7 @@ class ItemForm extends Component {
                 <div class="row">
                     <div class="input-field col s10">
                     <i class="material-icons prefix"> description</i>
-                        <input placeholder="Item" id="first_name" type="text" class="validate"></input>
+                        <input placeholder="Item" name="itemName" type="text" class="validate"></input>
                        
                     </div>
                 </div>
@@ -37,7 +37,7 @@ class ItemForm extends Component {
                 <div class="row">
                     <div class="input-field col s10">
                         <i class="material-icons prefix"> description</i>
-                        <textarea placeholder="Description" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <textarea placeholder="Description" name="description" class="materialize-textarea" data-length="120"></textarea>
                         
                     </div>
                 </div>
@@ -46,7 +46,7 @@ class ItemForm extends Component {
                 <div class="row">
                     <div class="input-field col s10">
                         <i class="material-icons prefix">attach_money</i>
-                        <input placeholder="Price" id="icon_telephone" type="number" class="validate"></input>
+                        <input placeholder="Price" name="price" type="number" class="validate"></input>
                         
                     </div>
                 </div>
@@ -56,17 +56,17 @@ class ItemForm extends Component {
                 <div class="row">
                     <div class="input-field col s10">
                         <i class="material-icons prefix">account_circle</i>
-                        <input placeholder="Name" id="icon_prefix" type="text" class="validate"></input>
+                        <input placeholder="Name" name="name" type="text" class="validate"></input>
                         
                     </div>
         
                     <div class="input-field col s10">
                         <i class="material-icons prefix">phone</i>
-                        <input placeholder="Phone" id="icon_telephone" type="tel" class="validate"></input>
+                        <input placeholder="Phone" name="contact" type="tel" class="validate"></input>
                         
                     </div>
 
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <button class="btn waves-effect waves-light" type="submit" >Submit
                      <i class="material-icons right">send</i>
                     </button>
 
