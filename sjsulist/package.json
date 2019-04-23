@@ -4,14 +4,15 @@
   "description": "CMPE 195 final project",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "mongoose": "^5.5.2",
-    "dotenv": "^7.0.0"
+    "dotenv": "^7.0.0",
+    "body-parser": "^1.18.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.11"
