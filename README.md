@@ -1,10 +1,20 @@
-SJSUList 195 final project
-###  
+SJSUList 195 final project<br>
 
-### `npm install` 
-Use this command to install all the packages<br>
+to start the server: <br>
+### `nodemon app`
+to install packages: <br>
+### `npm install`
 
+
+to start the client: <br>
+First, go to client folder: <br>
+### `cd client ` 
+install all the packages: <br>
+### `npm install`
+start client side: <br>
 ### `npm start`
-Then use this command to run the application in the development mode.<br>
+
+
+
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
