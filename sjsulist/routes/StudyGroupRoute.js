@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getStudyGroup, addStudyGroup} = require('../controller/ItemController')
+const { getStudyGroup, addStudyGroup} = require('../controller/StudyGroupController');
 
 
 router.get("/getstudygroup", getStudyGroup)

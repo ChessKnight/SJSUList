@@ -13,7 +13,8 @@ mongoose.connection.on("error", err => {
   console.log(`error message: ${err.message}`)});
 
 //routes
-const ItemRoute = require('./routes/ItemRoute')
+const ItemRoute = require('./routes/ItemRoute');
+const StudyGroupRoute = require('./routes/StudyGroupRoute');
 //const RegistrationRoute = require('./routes/RegistrationRoute')
 
 
@@ -23,6 +24,7 @@ server.use(bodyParser.json());
 
 server.use("/", ItemRoute);
 //server.use("/", RegistrationRoute)
+server.use("/",StudyGroupRoute);
 
 const port = 5000
 server.listen(port);

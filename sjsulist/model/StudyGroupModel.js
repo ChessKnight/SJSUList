@@ -13,4 +13,4 @@ const StudyGroupSchema = new mongoose.Schema({
         type: [String]
     }
 })
-model.exports = mongoose.model('SudyGroup', StudyGroupSchema);
+model.exports = mongoose.model('StudyGroup', StudyGroupSchema);

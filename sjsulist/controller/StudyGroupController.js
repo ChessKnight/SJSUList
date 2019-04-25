@@ -1,4 +1,4 @@
-const StudyGroup = required('../model/StudyGroupModel');
+const StudyGroup = require('../model/StudyGroupModel');
 
 
 exports.getStudyGroup = (_req,res) =>{
@@ -20,7 +20,7 @@ exports.addStudyGroup = (req,res) =>{
         res.json(stydygroup).send(200);
     })
     }
-}
+
 
 // exports.addStudyGroup = (res,req) =>{
 //
