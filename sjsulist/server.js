@@ -2,6 +2,7 @@ const express = require('express')
 const server = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+//var cookieParser = require('cookie-parser')
 const dotenv = require('dotenv')
 dotenv.config();   
 
@@ -11,22 +12,17 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }).then(() => {c
 mongoose.connection.on("error", err => {
   console.log(`error message: ${err.message}`)});
 
-
-
 //routes
 const ItemRoute = require('./routes/ItemRoute')
+//const RegistrationRoute = require('./routes/RegistrationRoute')
 
 
 //middleware
 server.use(bodyParser.json());
+//server.use(cookieParser())
 
-server.use("/", ItemRoute)
- 
-
-
-
-
-
+server.use("/", ItemRoute);
+//server.use("/", RegistrationRoute)
 
 const port = 5000
 server.listen(port);
