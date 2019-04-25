@@ -9,8 +9,8 @@ const StudyGroupSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    memberss: {
+    members: {
         type: [String]
     }
 })
-model.exports = mongoose.model('StudyGroup', StudyGroupSchema);
+module.exports = mongoose.model('StudyGroup', StudyGroupSchema);
