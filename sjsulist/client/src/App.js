@@ -4,7 +4,9 @@ import NavigationBar from "./NavigationBar";
 import StudyGroup from "./StudyGroupComponent/StudyGroup";
 import Items from "./ItemCardlistComponent/ItemCardList";
 import MainPage from './MainPage'; 
-import Footer from './Footer';
+//import Footer from './Footer';
+import login from './RegistrationForms/login';
+import register from './RegistrationForms/register';
 
 
 
@@ -20,13 +22,15 @@ class App extends Component {
                         <div> 
                             <Route exact path='/' component={MainPage} />
                             <Route path='/StudyGroup' component={StudyGroup} />
-                            <Route path='/Items' component={Items} />      
+                            <Route path='/Items' component={Items} />  
+                            <Route path='/login' component={login} />    
+                            <Route path='/register' component={register} /> 
                         </div>
                   </Switch>
             </BrowserRouter>
             
          
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
   }
