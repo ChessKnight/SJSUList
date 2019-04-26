@@ -1,0 +1,31 @@
+  .form{
+  border-radius: 25px;
+  border: 2px solid #0d47a1;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+  margin: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 12px #0d47a1;
+  
+}
+
+.button{
+ position: center;
+ background-color: #0d47a1;
+ color: white;
+ padding: 10px;
+ border-radius: 12px;
+ text-align: center; 
+}
+
+.button-position{
+    margin-left: 37%; 
+}
+
+ 
