@@ -4,12 +4,17 @@
   "description": "CMPE 195 final project",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "packages": "npm install && cd client && npm install",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "sjsulist": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
