@@ -17,9 +17,8 @@ class Register extends Component {
     })
   }
 
-  handleSubmit = (e) => {
+  submitForm = (e) => {
     e.preventDefault();
-    // console.log(this.state);
       const { name, email, studentId , studentMajor, password} = this.state
       const newUser = {
         name: name,
@@ -40,7 +39,7 @@ class Register extends Component {
     return (
       
       <div className="form">
-        <form  onSubmit={this.handleSubmit}>
+        <form  onSubmit={this.submitForm}>
           <h5 className="  text-darken-3">Register for a new account!</h5>
 
           <div className="input-field">

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
+import axios from 'axios';
 
 
 const styles = theme => ({
@@ -21,20 +22,36 @@ const styles = theme => ({
   }
 });
 
+
 class StudyGroupForm extends React.Component {
   state = {
-    name: "Cat in the Hat",
-    age: "",
-    multiline: "Controlled",
-    currency: "EUR"
-  };
+      Title: '',
+      description: ''
+  }
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
 
-  render() {
-    //const { classes } = this.props;
+  handleChange = (e) => {
+      this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+
+
+  submitForm = (e) => {
+    e.preventDefault();
+    const { Title, description  } = this.state
+    const addStudyGroup = {
+        Title: Title,
+        description: description 
+    }
+
+
+ axios.post(`http://localhost:5000/addstudygroup`, addStudyGroup)
+      .then(res => console.log(res.data));
+
+  }
+
+render() {
 
     return (
       <div>
@@ -42,14 +59,14 @@ class StudyGroupForm extends React.Component {
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
         />
-        <form action="#">
+        <form onSubmit={this.submitForm}>
           <div>
             <div class="row">
               <div class="input-field col s6">
-                <i class="material-icons prefix"> description</i>
+                <i class="material-icons prefix"> Title</i>
                 <input
                   placeholder="Subject"
-                  id="first_name"
+                  id='Title' onChange={this.handleChange}
                   type="text"
                   class="validate"
                 />
@@ -62,7 +79,7 @@ class StudyGroupForm extends React.Component {
               <div class="input-field col s12">
                 <i class="material-icons prefix"> description</i>
                 <textarea
-                  id="textarea2"
+                  id='description' onChange={this.handleChange}
                   class="materialize-textarea"
                   data-length="120"
                 />

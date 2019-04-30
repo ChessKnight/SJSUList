@@ -1,4 +1,4 @@
-# SJSUList (CMPE195) - Final project<br>
+# SJSUList - CMPE195 project<br>
 
 ### To install packages for both client and server: <br>
 ### First go to the main directory(sjsulist) and install packages <br>
