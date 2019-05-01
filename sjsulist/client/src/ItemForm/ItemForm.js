@@ -8,45 +8,51 @@ import Clarifai from 'clarifai';
 const app = new Clarifai.App({
     apiKey: '8987d7299e5943c5bb94928bd2fdfe63'
    });
-
+   const image2base64 = require('image-to-base64');
 
 class ItemForm extends Component {
     
     constructor(){
         super();
         this.state={
-            fileimage: "images/placeholdimage.jpg",
-            prediction: ""
+            fileimage: "images/placeholder.jpeg",
+            
         }
     }
 
+    
+
     onChanger=(event)=>{
        var output = document.getElementById("image");
-      
        output.src= URL.createObjectURL(event.target.files[0]);
-       console.log(output.src);
 
+       image2base64(output.src) // you can also to use url
+        .then(
+            (response) => {
+           
+                this.predictPic(response);
+              
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error); //Exepection error....
+            }
+        )
+    }
 
-       app.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
-      .then(generalModel => {
-        return generalModel.predict("https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F833455%252F5fc3da8c-5dd0-4d02-864f-746289abe608.jpg%252F950x534__filters%253Aquality%252890%2529.jpg?signature=W0S4XoEi34AvAiGapJVi5F9eH20=&source=https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com");
-      })
-      .then(response => {
-        var concepts = response['outputs'][0]['data']['concepts'];
-        this.setState({prediction: concepts[0].name});
-      })
-
-      console.log(output.baseURI);
-
-      app.models.predict(Clarifai.GENERAL_MODEL, {base64: output.baseURI}).then(
-        function(response) {
-          // do something with response
-          console.log(response);
-        },
-        function(err) {
-          // there was an error
-        }
-      );
+    predictPic(result){
+        app.models.predict(Clarifai.GENERAL_MODEL, {base64: result}).then(
+            function(response) {
+              // do something with response
+              var concepts = response['outputs'][0]['data']['concepts'];
+              console.log(concepts[0].name);
+              document.getElementById("item_category").value=concepts[0].name;
+            },
+            function(err) {
+              // there was an error
+            }
+        );
     }
 
   render() {
@@ -64,16 +70,16 @@ class ItemForm extends Component {
                 <div class="row">
                     <div class="input-field col s10">
                     <i class="material-icons prefix"> description</i>
-                        <input placeholder="Item" id="first_name" type="text" class="validate" value={this.state.prediction}></input>
+                        <input placeholder="Item" id="first_name" type="text" class="validate"></input>
                        
                     </div>
                 </div>
             
-            {/* Item Description */}
+            {/* Item category */}
                 <div class="row">
                     <div class="input-field col s10">
                         <i class="material-icons prefix"> description</i>
-                        <textarea placeholder="Description" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <textarea placeholder="Category" id="item_category" class="materialize-textarea" data-length="120"></textarea>
                         
                     </div>
                 </div>
