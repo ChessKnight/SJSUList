@@ -16,7 +16,7 @@ class ItemCardList extends Component{
     }
 
     componentDidMount(){
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch('http://localhost:5000/')
         .then(response => response.json())
         .then(data=> this.setState({data}));
     }

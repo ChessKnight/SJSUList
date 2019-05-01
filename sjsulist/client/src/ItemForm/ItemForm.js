@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import { TextField } from '@material-ui/core';
-import './ItemForm.css';
+
 import Clarifai from 'clarifai';
 
 const app = new Clarifai.App({

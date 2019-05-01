@@ -13,7 +13,7 @@ class StudyGroup extends Component {
 }
 
   componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('http://localhost:5000/getstudygroup')
     .then(response => response.json())
     .then(data=> this.setState({data}));
   }

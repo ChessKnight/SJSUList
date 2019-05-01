@@ -37,23 +37,23 @@ function StudyGroupCard(props) {
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                  {props.value[i].title}
+                  {props.value[i].Title}
                   </Typography>
                   <Typography component="p">
-                  {props.value[i].body}
+                  {props.value[i].description}
                   </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
                   <Typography gutterBottom variant="h8" component="h9">
-                  Owner: {props.value[i].userId}
+                  Owner: {props.value[i]._id}
                   </Typography>
                   
         
               </CardActions>
               <CardActions>
                 <Typography gutterBottom variant="h8" component="h9">
-                  Members: 
+                  Members: {props.value[i].members}
                   </Typography>
               </CardActions>
               <CardActions>
