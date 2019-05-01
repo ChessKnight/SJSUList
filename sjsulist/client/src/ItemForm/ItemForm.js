@@ -4,11 +4,11 @@ import 'materialize-css/dist/css/materialize.min.css';
 import { TextField } from '@material-ui/core';
 import './ItemForm.css';
 import Clarifai from 'clarifai';
+import image2base64 from '../Tools/ImageDecoder';
 
 const app = new Clarifai.App({
     apiKey: '8987d7299e5943c5bb94928bd2fdfe63'
    });
-   const image2base64 = require('image-to-base64');
 
 class ItemForm extends Component {
     
@@ -23,30 +23,36 @@ class ItemForm extends Component {
     
 
     onChanger=(event)=>{
-       var output = document.getElementById("image");
-       output.src= URL.createObjectURL(event.target.files[0]);
+        try{
+    
+        var output = document.getElementById("image");
+        
+        output.src= URL.createObjectURL(event.target.files[0]);
 
-       image2base64(output.src) // you can also to use url
-        .then(
-            (response) => {
+        image2base64(output.src) // you can also to use url
+            .then(
+                (response) => {
+            
+                    this.predictPic(response);
+                
+                }
+            )
+            .catch(
+                (error) => {
+                    console.log(error); //Exepection error....
+                }
+            )
+        }
+        catch(err)
+        {
            
-                this.predictPic(response);
-              
-            }
-        )
-        .catch(
-            (error) => {
-                console.log(error); //Exepection error....
-            }
-        )
+        }
     }
-
     predictPic(result){
         app.models.predict(Clarifai.GENERAL_MODEL, {base64: result}).then(
             function(response) {
               // do something with response
               var concepts = response['outputs'][0]['data']['concepts'];
-              console.log(concepts[0].name);
               document.getElementById("item_category").value=concepts[0].name;
             },
             function(err) {
@@ -57,63 +63,71 @@ class ItemForm extends Component {
 
   render() {
     return (
-        <div>
+        <div className="i-form">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
             <form action="#" method ="post">
-                <div>
+                <div className="up-image">
                 <label for="up" class="btn">Select Image</label>
                     <input type="file" onChange={this.onChanger} id="up" className="inputbutton"></input>
-                    <img alt="file image" src={this.state.fileimage} id="image" className="itemimg"></img>
+                    <div className="image-props">
+                        <img alt="file image" src={this.state.fileimage} id="image" className="itemimg"></img>
+                    </div>
+                    
                 </div>
 
-                {/* Name of item */}
-                <div class="row">
-                    <div class="input-field col s10">
-                    <i class="material-icons prefix"> description</i>
-                        <input placeholder="Item" id="first_name" type="text" class="validate"></input>
-                       
-                    </div>
-                </div>
-            
-            {/* Item category */}
-                <div class="row">
-                    <div class="input-field col s10">
-                        <i class="material-icons prefix"> description</i>
-                        <textarea placeholder="Category" id="item_category" class="materialize-textarea" data-length="120"></textarea>
+                <div className="input-info">
+                    {/* Name of item */}
+                    <div className="i-input" >
+                        <div class="input-field col s20">
+                        <h6>Item:</h6>
+                            <input placeholder="Calc textbook, it-84, etc." id="first_name" type="text" class="validate"></input>
                         
+                        </div>
                     </div>
-                </div>
-
-            {/* Price of item */}
-                <div class="row">
-                    <div class="input-field col s10">
-                        <i class="material-icons prefix">attach_money</i>
-                        <input placeholder="Price" id="icon_telephone" type="number" class="validate"></input>
-                        
-                    </div>
-                </div>
-
                 
-                {/* Contact info */}
-                <div class="row">
-                    <div class="input-field col s10">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input placeholder="Name" id="icon_prefix" type="text" class="validate"></input>
-                        
-                    </div>
-        
-                    <div class="input-field col s10">
-                        <i class="material-icons prefix">phone</i>
-                        <input placeholder="Phone" id="icon_telephone" type="tel" class="validate"></input>
-                        
+                {/* Item category */}
+                    <div className="i-input">
+                        <div class="input-field col s10">
+                        <h6>Category:</h6>
+                            <textarea placeholder="Books, calculator, computer, etc." id="item_category" class="materialize-textarea" data-length="120"></textarea>
+                            
+                        </div>
                     </div>
 
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                     <i class="material-icons right">send</i>
-                    </button>
+                {/* Price of item */}
+                    <div className="i-input">
+                        <div class="input-field col s10">
+                        <h6>Price (USD):</h6>
+                            <input placeholder="Everything has a price..." id="icon_telephone" type="number" class="validate"></input>
+                            
+                        </div>
+                    </div>
 
-
+                {/* Condition info */}
+                <div className="i-input">
+                        <div class="input-field col s10">
+                        <h6>Condition:</h6>
+                            <input placeholder="New, used, if other:please explain." id="icon_prefix" type="text" class="validate"></input>
+                            
+                        </div>
+                    </div>
+                    
+                    {/* Contact info */}
+                    <div className="i-input">
+                        <div class="input-field col s10">
+                        <h6>Contact info:</h6>
+                            <input placeholder="Provide an email, you wish to be contacted." id="icon_prefix" type="text" class="validate"></input>
+                            
+                        </div>
+                    </div>
                 </div>
+                        
+                <button class="btn waves-effect waves-light submit-button" type="submit" name="action">Put For Sale!
+                    <i class="material-icons right">attach_money</i>
+                </button>
+
+
+                    
 
                 
 

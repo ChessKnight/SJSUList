@@ -4,7 +4,7 @@
 .store-list{
  display: flex;
  flex-wrap: wrap;
- max-width: 1000px;
+
 }
 
 .item-form{
@@ -15,4 +15,15 @@
     right: 20px;
     scroll-behavior: smooth;
     margin: 10px;
+}
+.add-item{
+padding: 10px;
+}
+.add-item-btn{
+    width: 100%;
+
+}
+.search-filter-sort{
+    display: flex;
+    flex-wrap: wrap;
 }

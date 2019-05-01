@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import StudyGroupForm from './StudyGroupComponent/StudyGroupForm'
+import ItemForm from './ItemForm/ItemForm'
+
 
 class MainPage extends Component {
   render() {
     return (
       <div>
-         this is main page
+         <ItemForm></ItemForm>
       </div>
     )
   }

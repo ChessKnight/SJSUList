@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import axios from 'axios';
+import './StudyGroupForm.css';
 
 
 const styles = theme => ({
@@ -60,12 +61,12 @@ render() {
           rel="stylesheet"
         />
         <form onSubmit={this.submitForm}>
-          <div>
-            <div class="row">
+          <div className="g-form">
+            <div className="group-subject">
               <div class="input-field col s6">
-                <i class="material-icons prefix"> Title</i>
+                <h6>Subject:</h6>
                 <input
-                  placeholder="Subject"
+                  placeholder="Calc I, physics 50, eng 1A, etc."
                   id='Title' onChange={this.handleChange}
                   type="text"
                   class="validate"
@@ -75,25 +76,24 @@ render() {
             </div>
 
             {/* Item Description */}
-            <div class="row">
+            <div className="group-desc">
               <div class="input-field col s12">
-                <i class="material-icons prefix"> description</i>
+                <h6>Description:</h6>
                 <textarea
                   id='description' onChange={this.handleChange}
                   class="materialize-textarea"
                   data-length="120"
+                  placeholder="Describe the purpose of the group."
                 />
-                <label for="textarea2">description</label>
               </div>
             </div>
 
             <button
-              class="btn waves-effect waves-light"
+              class="btn postBtn"
               type="submit"
               name="action"
             >
-              Submit
-              <i class="material-icons right">send</i>
+              Post!
             </button>
           </div>
         </form>
