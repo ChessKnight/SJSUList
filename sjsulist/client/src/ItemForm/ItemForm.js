@@ -11,17 +11,19 @@ const app = new Clarifai.App({
     apiKey: '8987d7299e5943c5bb94928bd2fdfe63'
    });
 
+   var u="";
+
 class ItemForm extends Component {
     
     constructor(){
         super();
         this.state={
-            fileimage: "images/placeholder.jpeg",
+            imageSrc: "images/placeholder.jpeg",
             
         }
     }
 
-    
+   
 
     onChanger=(event)=>{
         try{
@@ -33,7 +35,7 @@ class ItemForm extends Component {
         image2base64(output.src) // you can also to use url
             .then(
                 (response) => {
-            
+                    this.setState({imageSrc: 'data:image/png;base64,'+response});
                     this.predictPic(response);
                 
                 }
@@ -71,11 +73,12 @@ class ItemForm extends Component {
                 <label for="up" class="btn">Select Image</label>
                     <input type="file" onChange={this.onChanger} id="up" className="inputbutton"></input>
                     <div className="image-props">
-                        <img alt="file image" src={this.state.fileimage} id="image" className="itemimg"></img>
+                        <img alt="file image" src='images/placeholder.jpeg' id="image" className="itemimg"></img>
+                       
                     </div>
                     
                 </div>
-
+                
                 <div className="input-info">
                     {/* Name of item */}
                     <div className="i-input" >
