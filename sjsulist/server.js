@@ -17,7 +17,8 @@ mongoose.connection.on("error", err =>
 //routes
 const ItemRoute = require('./routes/ItemRoute');
 const StudyGroupRoute = require('./routes/StudyGroupRoute');
-const RegistrationRoute = require('./routes/RegistrationRoute')
+const RegistrationRoute = require('./routes/RegistrationRoute');
+const UserRoute = require('./routes/UserRoute');
 
 
 //middleware
@@ -28,6 +29,7 @@ server.use(cors())
 server.use("/", ItemRoute);
 server.use("/", RegistrationRoute)
 server.use("/",StudyGroupRoute);
+server.use("/",UserRoute);
 
 const port = 5000
 server.listen(port);
