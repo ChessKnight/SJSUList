@@ -14,6 +14,8 @@ class ItemCardList extends Component{
         super()
         this.state={
             data: [],
+            constantData:[],
+            searchString: "",
             
         }
     }
@@ -21,11 +23,33 @@ class ItemCardList extends Component{
     componentDidMount(){
         fetch('http://localhost:5000/')
         .then(response => response.json())
-        .then(data=> this.setState({data}));
+        .then(data=> this.setState({data},this.setState({constantData:data})));
         
     }
-    
+ //this is for sorting   
+    sort=()=>{
 
+    }
+//This filters the list based on the search
+    searchClicked=(event)=>{
+        var c = this.state.constantData;
+        var d = [];
+        var s = this.state.searchString;
+        for(var i=0; i<c.length; i++){
+            
+            if(c[i].description.includes(s))
+            {
+                d.push(c[i]);
+            }
+        }
+        this.setState({data: d});
+        console.log(this.state.data);
+
+    }
+//this is a hlper for searching
+    searching=(event)=>{
+        this.setState({searchString:event.target.value});
+    }
    
     render(){
         return(
@@ -37,7 +61,7 @@ class ItemCardList extends Component{
                <hr></hr>
             </div> 
             <div className="search-filter-sort">
-                <SearchBar></SearchBar>
+                <SearchBar searchClicked={this.searchClicked} searching={this.searching}></SearchBar>
                 <Sort></Sort>
             </div>
             <div className="results">
