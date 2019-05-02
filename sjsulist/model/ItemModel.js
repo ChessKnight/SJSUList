@@ -2,25 +2,33 @@ const mongoose = require('mongoose');
 
 
 const itemSchema  = new mongoose.Schema({
-    itemName: {
-        type: String,
-        required: true
+    imageSrc: {
+        type: String
     },
+    
+    itemName: {
+        type: String 
+    },
+
     description: {
-        type: String,
-        required: true
+        type: String 
     },
     price: {
-        type: Number,
-        required: true
+        type: Number 
     },
-    contact: {
-        type: Number,
 
+    contact: {
+        type: String
     },
+    
     name: {
         type: String
+    },
+
+    condition: {
+        type: String
     }
+
 });
 
 module.exports = mongoose.model('itemModel', itemSchema);
