@@ -25,8 +25,16 @@ const styles = {
   }
 };
 
+
 function StudyGroupCard(props) {
+
+
+
   const { classes } = props;
+
+  
+ 
+  
 
   return(
     <div>

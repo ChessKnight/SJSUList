@@ -48,7 +48,14 @@ class ItemCardList extends Component{
             <ul class="store-list">
                 {this.state.data.map((user, i)=>{
                     return(
-                        <ItemCard body={this.state.data[i].description} userId={this.state.data[i].id}/>
+                        <div>
+                            
+                        <ItemCard image= {this.state.data[i].imageSrc} body={this.state.data[i]._id} description={this.state.data[i].description}
+                            price={this.state.data[i].price} contact={this.state.data[i].contact}
+                            name = {this.state.data[i].name} condition={this.state.data[i].condition}
+                        />
+                        </div>
+                        
                     );
                 })}
             </ul>
