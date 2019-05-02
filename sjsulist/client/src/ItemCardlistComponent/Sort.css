@@ -1,3 +1,29 @@
+
 .sort{
     margin: 20px;
+    position: relative;
+    display: inline-block;
+    padding: none;
+    
 }
+.drop{
+
+    position: relative;
+    display: inline-block;
+}
+.topbtn{
+    width: 150px;
+    font-size: 10pt;
+    height: 30px;
+}
+  
+.dropitem{
+    visibility: hidden;
+    cursor: pointer;
+}
+
+  
+  .sort:hover .dropitem {
+    visibility: visible;
+    
+  }

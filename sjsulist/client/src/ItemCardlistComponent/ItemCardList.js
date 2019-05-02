@@ -13,7 +13,8 @@ class ItemCardList extends Component{
     constructor(){
         super()
         this.state={
-            data: []
+            data: [],
+            
         }
     }
 
@@ -21,13 +22,12 @@ class ItemCardList extends Component{
         fetch('http://localhost:5000/')
         .then(response => response.json())
         .then(data=> this.setState({data}));
+        
     }
     
 
    
     render(){
-    
-        
         return(
         <div class="row">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
@@ -40,6 +40,10 @@ class ItemCardList extends Component{
                 <SearchBar></SearchBar>
                 <Sort></Sort>
             </div>
+            <div className="results">
+                <h5>Results: {this.state.data.length}</h5>
+            </div>
+            
             <div>
             <ul class="store-list">
                 {this.state.data.map((user, i)=>{

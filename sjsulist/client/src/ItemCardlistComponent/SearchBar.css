@@ -7,6 +7,7 @@
   height: 47px;
   border-top-right-radius: 4pt;
   border-bottom-right-radius: 4pt;
+  cursor: pointer;
 }
 .search-input{
     height: 50px;
