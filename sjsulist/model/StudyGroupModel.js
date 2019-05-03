@@ -1,7 +1,8 @@
 const mongoose  = require ('mongoose');
+const {ObjectId} = mongoose.Schema;
 
 const StudyGroupSchema = new mongoose.Schema({
-    Title: {
+    title: {
         type: String,
         required: true
     },
@@ -11,6 +12,10 @@ const StudyGroupSchema = new mongoose.Schema({
     },
     members: {
         type: [String]
+    },
+    studyGroupPostedBy:{
+        type: ObjectId,
+        ref: "User"
     }
 })
 module.exports = mongoose.model('StudyGroup', StudyGroupSchema);

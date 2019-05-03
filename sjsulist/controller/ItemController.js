@@ -13,21 +13,21 @@ exports.itemId = (req,res,next,id)=>{
                     error: err
                 })
             }
-//get the item information and addit to req function
+//get the items information and addit to req function
             req.item = itemPost;    
             next();
         })
 };
 
 
-// exports.getItem = (_req, res) => {
-//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-//   const item = Item.find()
-//   item.find((err, item ) => {
-//       if (err) res.status(400).send(err);
-//     res.json(item ).status(200); 
-//   })
-// }
+exports.getItems = (_req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  const item = Item.find()
+  item.find((err, item ) => {
+      if (err) res.status(400).send(err);
+    res.json(item ).status(200); 
+  })
+}
 
 exports.getItem = (req,res)=>{
   const item = Item.find()
@@ -38,11 +38,12 @@ exports.getItem = (req,res)=>{
     }).catch(err=>console.log(err));
 };
 
+
 //post on the database using user ID
 exports.addItem = (req, res) => {
  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
     const item = new Item(req.body);
-    item.itemPostedBy = req.Userprofile;
+    item.itemPostedBy = req.Userprofile; //get the user profile info
   item.save((err) => {
        if (err) res.status(500).send(err);
     res.status(200).json(item);
@@ -52,7 +53,7 @@ exports.addItem = (req, res) => {
 //this function to get the user post using user ID
 exports.getItemByUserId = (req,res)=>{
   Item.find({ itemPostedBy: req.Userprofile._id })
-  .populate("itemPostedBy", "_id studentId")
+  .populate("itemPostedBy", "_id studentId name")
   .exec((err,items)=>{
     if(err) {
       return res.status(400).json({
@@ -90,11 +91,20 @@ exports.deleteItem = (req,res) =>{
   });
 };
 
-//to check if the post is for the user who post it 
+//to check if the item  posted is for the user who post it 
 exports.thePoster = (req,res,next)=>{
-  let thePoster = req.item && req.authantication && req.item.itemPostedBy._id == req.authantication._id;
+  let thePoster =
+    req.item &&
+    req.authantication &&
+    req.item.itemPostedBy._id 
+    == req.authantication._id;
+    console.log("req.item", req.item);
+    console.log("req.auth",req.authantication);
+    console.log("req.item.postedby",req.item.itemPostedBy._id);
+    console.log("req.auth.id",req.authantication._id);
+
   if(!thePoster){
-    return res.status(400).json({
+    return res.status(403).json({
       error: "You can't change the item, Log in first"
     });
     next();
