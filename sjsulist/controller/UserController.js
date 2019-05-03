@@ -74,5 +74,3 @@ exports.updateUser = (req, res, next) => {
     res.json({ user });
   });
 };
-
-

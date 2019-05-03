@@ -37,7 +37,7 @@ exports.login = (req, res) => {
       return res.status(401).json({ message: "please use the correct id and password" });
       
     //creating a new token with 1 hour expiration time
-    const jwtToken = jwt.sign({ _id: user._id }, 'xyxyxyxy', {expiresIn: '1h'});
+    const jwtToken = jwt.sign({ _id: user._id }, 'xyxyxyxy', {expiresIn: '12h'});
     
     //creating a cookie for the browser with new token and 1 hour expiration time
     res.cookie("t", jwtToken, { expires: new Date(Date.now() + 6000) ,httpOnly: false});
