@@ -61,7 +61,7 @@ class ItemForm extends Component {
             function(response) {
               // do something with response
               var concepts = response['outputs'][0]['data']['concepts'];
-              document.getElementById("item_category").value=concepts[0].name;
+              document.getElementById("description").value=concepts[0].name;
             },
             function(err) {
               // there was an error

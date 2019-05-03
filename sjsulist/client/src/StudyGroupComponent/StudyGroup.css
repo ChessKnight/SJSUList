@@ -15,3 +15,7 @@
     align-content: flex-start;
     flex-wrap: wrap;
 }
+.add-item-btn{
+  width: 100%;
+
+}

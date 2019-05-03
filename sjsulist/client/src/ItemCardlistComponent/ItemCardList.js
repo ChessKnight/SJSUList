@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ItemCard from './ItemCard';
 import './ItemCardList.css';
 import Pager from '../PagerComponent/Pager';
-import SearchBar from './SearchBar';
-import Sort from './Sort';
+import SearchBar from '../Tools/SearchBar';
+import Sort from '../Tools/Sort';
 
 import ItemForm from '../ItemForm/ItemForm.js';
 
