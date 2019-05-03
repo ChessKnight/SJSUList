@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema; //we extract objectid from the Schema
 
 
 const itemSchema  = new mongoose.Schema({
@@ -27,6 +28,10 @@ const itemSchema  = new mongoose.Schema({
 
     condition: {
         type: String
+    },
+    itemPostedBy : {
+        type: ObjectId,
+        
     }
 
 });

@@ -31,5 +31,12 @@ server.use("/", RegistrationRoute)
 server.use("/",StudyGroupRoute);
 server.use("/",UserRoute);
 
+//this code for error handling from https://www.npmjs.com/package/express-jwt
+server.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send('Unauthorized'); //we can use json to send the error message
+  }
+});
+
 const port = 5000
 server.listen(port);

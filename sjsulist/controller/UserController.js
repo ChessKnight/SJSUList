@@ -43,4 +43,36 @@ exports.allusers = (req,res) =>{
         }
         res.json({user});
     }).select("name email studentId") //the fiels we will return
-}
+};
+
+//get user by user id
+
+exports.getUserById = (req,res) =>{
+    //to hide the information for sensetive info we used undefined
+    //with the request
+    req.Userprofile.hashed_password = undefined;
+    req.Userprofile.salt = undefined;
+    //to get the user information from the profile we create in userId()
+    return res.json(req.Userprofile)
+};
+
+exports.updateUser = (req, res, next) => {
+  let user = req.Userprofile;
+  //req.body is the incoming info for updates
+  user = _.extend(user, req.body); //change the source object
+  user.updated = Date.now(); //get the date tag
+  user.save(err => {
+    if (err) {
+      return res.status(400).json({
+        error: "You can't update user log in to start updating "
+      });
+    }
+    //hide hashed_password and salt
+    user.hashed_password = undefined;
+    user.salt = undefined;
+    //response with user information
+    res.json({ user });
+  });
+};
+
+
