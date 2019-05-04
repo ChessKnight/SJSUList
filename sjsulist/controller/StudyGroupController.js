@@ -38,6 +38,7 @@ exports.getStudyGroup = (_req,res) =>{
     )
 }
 exports.addStudyGroup = (req,res) =>{
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   
     const studygroup = new StudyGroup(req.body);
     studygroup.studyGroupPostedBy = req.Userprofile;//get user profile info

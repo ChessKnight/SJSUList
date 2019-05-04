@@ -7,6 +7,8 @@ import MainPage from './MainPage';
 //import Footer from './Footer';
 import login from './RegistrationForms/login';
 import register from './RegistrationForms/register';
+//import profile from './profile'
+
 
 
 
@@ -25,6 +27,7 @@ class App extends Component {
                             <Route path='/Items' component={Items} />  
                             <Route path='/login' component={login} />    
                             <Route path='/register' component={register} /> 
+                           {/* <Route path='/user/:userId' component={profile} /> */}
                         </div>
                   </Switch>
             </BrowserRouter>
