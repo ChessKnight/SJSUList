@@ -27,8 +27,9 @@ class ItemCardList extends Component{
         
     }
  //this is for sorting   
-    sort=()=>{
+    sort=(event)=>{
 
+        console.log("l");
     }
 //This filters the list based on the search
     searchClicked=(event)=>{
@@ -62,7 +63,7 @@ class ItemCardList extends Component{
             </div> 
             <div className="search-filter-sort">
                 <SearchBar searchClicked={this.searchClicked} searching={this.searching}></SearchBar>
-                <Sort></Sort>
+                <Sort sortApplied={this.sort}></Sort>
             </div>
             <div className="results">
                 <h5>Results: {this.state.data.length}</h5>
