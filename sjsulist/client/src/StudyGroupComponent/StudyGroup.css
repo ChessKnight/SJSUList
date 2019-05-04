@@ -1,21 +1,16 @@
-.add-group{
-  text-align: end;
-  margin: 20px;
-  max-width:100;
-  position: fixed;
-  float: right;
-  right: 10px;
-  border: solid gray 5px;
-  border-radius: 4px;
-}
-
-.study-groups{
-
+ .study-groups{
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
 }
-.add-item-btn{
+.button{
+  text-align: center;
+  left: 50%; 
+  position: right;
+  align-items: center; 
+  background-color: #0d47a1;
+  color: white; 
+  border-radius: 4px;
+  margin: 1px;  
   width: 100%;
-
 }

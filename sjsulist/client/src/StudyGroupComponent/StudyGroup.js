@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import StudyGroupCard from "./StudyGroupCard";
-import StudyGroupForm from './StudyGroupForm';
 import './StudyGroup.css'
 import SearchBar from '../Tools/SearchBar'
 
@@ -46,20 +45,46 @@ searching=(event)=>{
   render() {
     const d = this.state.data;
     return (
-      <div className="study-group">
-          <div className="add-item">
-               <button class="btn add-item-btn">Add Group Post!</button> 
-               <hr></hr>
-          </div> 
+      <div className="container">
+
+
+           {/* Searchbar component */}
         <div>
-        <SearchBar searchClicked={this.searchClicked} searching={this.searching}></SearchBar>
+          <SearchBar searchClicked={this.searchClicked} searching={this.searching}></SearchBar>
         </div>
-         <div className="add-group">
-         <StudyGroupForm></StudyGroupForm>
-         </div>
+            
+              {/* add study group options- */}
+         <div>
+              {/* If not logged in redirects to log in page */}
+
+              <div>
+                {!localStorage.getItem('jwtToken') && (
+                  <div>
+                    <li><a href="/login">
+                      <button class="button">Add Group Post!</button>
+                    </a></li>
+                  </div>)}
+              </div>
+
+              {/* if logged it redirects to add study group page */}
+              <div>
+                {localStorage.getItem('jwtToken') && (
+                  <div>
+                    <li><a href="/addstudygroup">
+                  <button class="button">Add Group Post!</button>
+                    </a></li>
+                  </div>)}
+              </div>
+        </div>
+
+
+
+
+        <div className="study-group"> 
+ 
          <StudyGroupCard value={d}/> 
          
-       
+       </div>
 
       </div>
     )

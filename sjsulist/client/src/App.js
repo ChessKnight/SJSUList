@@ -9,7 +9,7 @@ import login from './RegistrationForms/login';
 import register from './RegistrationForms/register';
 import Profile from  './Profile/Profile'
 import ItemForm from './ItemForm/ItemForm';
-
+import StudyGroupForm from './StudyGroupComponent/StudyGroupForm';
 
 
 
@@ -32,6 +32,7 @@ class App extends Component {
                             <Route path='/ItemForm' component={ItemForm} />   
                             <Route path='/register' component={register} /> 
                             <Route path='/profile/:userId' component={Profile} />
+                            <Route path='/addstudygroup' component={StudyGroupForm} />
                         </div>
                   </Switch>
             </BrowserRouter>
