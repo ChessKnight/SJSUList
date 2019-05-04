@@ -33,7 +33,7 @@ axios.post(`http://localhost:5000/login`, newUser)
             console.log( res.data); 
             //storing token, user name and id in browser storate
             localStorage.setItem('jwtToken', res.data.jwtToken)
-            localStorage.setItem('user.name', res.data.user.name)
+            localStorage.setItem('username', res.data.user.name)
             localStorage.setItem('userId', res.data.user._id)
             //redirecting to homepage
             this.props.history.push('/'); 
