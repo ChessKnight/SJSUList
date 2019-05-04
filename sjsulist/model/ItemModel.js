@@ -32,6 +32,10 @@ const itemSchema  = new mongoose.Schema({
     itemPostedBy : {
         type: ObjectId,
         ref: "User"
+    },
+    PostDate: {
+        type: Date,
+        default: Date.now
     }
 
 });

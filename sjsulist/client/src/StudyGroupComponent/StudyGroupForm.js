@@ -47,15 +47,17 @@ class StudyGroupForm extends React.Component {
     }
 
 
- axios.post(`http://localhost:5000/addstudygroup`, addStudyGroup)
-      .then(res => console.log(res.data));
-
+     
+      const userId = localStorage.getItem('userId'); 
+      axios.post(`http://localhost:5000/addstudygroup/${userId}`, addStudyGroup)
+        .then(res => console.log(res.data));
+     
   }
 
 
 
 render() {
-
+  
     return (
       <div>
         <link

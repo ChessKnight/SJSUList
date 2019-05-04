@@ -5,7 +5,7 @@ const {signiRequired} = require("../controller/RegistrationController");
 const router = express.Router();
 
 router.get("/users", allusers);
-router.get("/userby/:userId",signiRequired,getUserById);
+router.get("/userby/:userId",getUserById);
 
 //we use put with updateuser 
 router.put("/userby/:userId", signiRequired, updateUser);

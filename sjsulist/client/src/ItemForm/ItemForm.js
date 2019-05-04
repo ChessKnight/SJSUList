@@ -89,8 +89,8 @@ class ItemForm extends Component {
             condition: condition
         }
 
-
-        axios.post(`http://localhost:5000/addItem`, addNewItem)
+        const userId = localStorage.getItem('userId'); 
+        axios.post(`http://localhost:5000/addItem/${userId}`, addNewItem)
             .then(res => console.log(res.data));
 
     }

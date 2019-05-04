@@ -6,7 +6,7 @@ const {signiRequired} = require("../controller/RegistrationController")
 
 
 router.get("/", getItems);
-router.post("/addItem/:userId",signiRequired, addItem);
+router.post("/addItem/:userId", addItem);
 
 router.get("/itemsby/:userId",signiRequired,getItemByUserId);
 

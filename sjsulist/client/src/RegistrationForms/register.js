@@ -99,6 +99,11 @@ class Register extends Component {
               </div>
 
         </form>
+        {/* link to login page*/}
+        <div >
+          <h6><a href="/login">Already have an account? Click here</a></h6>
+
+        </div>
       </div>
     )
   }

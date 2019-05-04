@@ -14,7 +14,7 @@ const {
 
 
 router.get("/getstudygroup", getStudyGroup);
-router.post("/addstudygroup/:userId",signiRequired, addStudyGroup);
+router.post("/addstudygroup/:userId", addStudyGroup);
 
 //get studygroups posted by a person
 router.get("/studygroupby/:userId", signiRequired, getStudyGroupByUserId);

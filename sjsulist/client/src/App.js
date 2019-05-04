@@ -8,6 +8,7 @@ import MainPage from './MainPage';
 import login from './RegistrationForms/login';
 import register from './RegistrationForms/register';
 import Profile from  './Profile/Profile'
+import ItemForm from './ItemForm/ItemForm';
 
 
 
@@ -27,7 +28,8 @@ class App extends Component {
                             <Route exact path='/' component={MainPage} />
                             <Route path='/StudyGroup' component={StudyGroup} />
                             <Route path='/Items' component={Items} />  
-                            <Route path='/login' component={login} />    
+                            <Route path='/login' component={login} />   
+                            <Route path='/ItemForm' component={ItemForm} />   
                             <Route path='/register' component={register} /> 
                             <Route path='/profile/:userId' component={Profile} />
                         </div>

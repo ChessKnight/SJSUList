@@ -3,12 +3,10 @@ const {ObjectId} = mongoose.Schema;
 
 const StudyGroupSchema = new mongoose.Schema({
     title: {
-        type: String,
-        required: true
+        type: String 
     },
     description: {
-        type: String,
-        required: true
+        type: String 
     },
     members: {
         type: [String]
@@ -16,6 +14,10 @@ const StudyGroupSchema = new mongoose.Schema({
     studyGroupPostedBy:{
         type: ObjectId,
         ref: "User"
+    },
+    PostDate: {
+        type: Date,
+        default: Date.now
     }
 })
 module.exports = mongoose.model('StudyGroup', StudyGroupSchema);
