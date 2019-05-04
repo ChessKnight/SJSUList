@@ -45,7 +45,7 @@ export class NavigationBar extends Component {
                             {/* works fine- test method with simple anchor tag <a href="/profile">{usersName}</a> */}    
 
                             {/* user profile link */}
-                             <Link to={`/profile/${userId}`}>{usersName}</Link>
+                             <Link to={`/Profile/${userId}`}>{usersName}</Link>
                             </div>
                         </li>
                        

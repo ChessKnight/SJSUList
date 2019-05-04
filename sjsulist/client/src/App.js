@@ -7,7 +7,7 @@ import MainPage from './MainPage';
 //import Footer from './Footer';
 import login from './RegistrationForms/login';
 import register from './RegistrationForms/register';
-import profile from './profile'
+import Profile from  './Profile/Profile'
 
 
 
@@ -29,7 +29,7 @@ class App extends Component {
                             <Route path='/Items' component={Items} />  
                             <Route path='/login' component={login} />    
                             <Route path='/register' component={register} /> 
-                            <Route path='/profile/:userId' component={profile} />
+                            <Route path='/profile/:userId' component={Profile} />
                         </div>
                   </Switch>
             </BrowserRouter>

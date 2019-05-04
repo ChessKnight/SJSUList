@@ -7,7 +7,7 @@ import Profile from './Profile/Profile'
 class MainPage extends Component {
   render() {
     return (
-      <Profile></Profile>
+    <div> </div>
     )
   }
 }
