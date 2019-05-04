@@ -11,7 +11,7 @@ const user = new mongoose.Schema({
   },
 
   studentId: {
-    type: String
+    type: Number
   },
 
   studentMajor:{

@@ -69,7 +69,7 @@ class Register extends Component {
               {/* registration field for student id */}
               <div className="input-field">
                 <label htmlFor="text">Student ID</label>
-                <input type="text" id='studentId' onChange={this.handleChange} />
+                <input type="number" id='studentId' onChange={this.handleChange} />
               </div>
 
               {/* <div className="input-field">
