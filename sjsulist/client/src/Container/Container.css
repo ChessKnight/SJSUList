@@ -1,0 +1,27 @@
+.containerBox{
+    width: 100%;
+    align-content: flex-start;
+    border-radius: 4pt;
+    border-right: #0c44a4 solid 2pt;
+    border-left: #0c44a4 solid 2pt;
+    border-bottom: #0c44a4 solid 2pt;
+    box-shadow: #0c44a4 5px 5px;
+    margin: 20px;
+   
+}
+.containerHeader{
+    background:	 #0c44a4;
+    display: flex;
+    align-self: flex-start;
+    color: aliceblue;
+    text-align: center;
+    border-top-left-radius: 4pt;
+    border-top-right-radius: 4pt;
+    
+
+}
+.containerBody{
+    padding-right: 10px;
+    padding-left: 10px;
+    
+}

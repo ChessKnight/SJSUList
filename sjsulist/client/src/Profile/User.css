@@ -1,0 +1,13 @@
+.userName{
+
+}
+.userPic{
+    width: 200px;
+    height: 200px;
+    height: default;
+    border-radius: 50%;
+}
+.user-profile{
+    display: flex;
+    width:100%
+}
