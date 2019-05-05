@@ -1,0 +1,13 @@
+.contentSetUp{
+    display: inline-block;
+    text-align: center;
+    margin:20px;
+    padding: 20px;
+}
+.newItems{
+    display: inline-block;
+    margin:10px;
+}
+.feed{
+    width:90%;
+}
