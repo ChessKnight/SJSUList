@@ -1,6 +1,9 @@
 const StudyGroup = require('../model/StudyGroupModel');
 const _ = require('lodash');
 
+
+
+
 //StudyGroupId:  to get the studygroupId in the database
 exports.studyGroupId = (req,res,next,id)=>{
     StudyGroup.findById(id)
@@ -40,8 +43,13 @@ exports.getStudyGroup = (_req,res) =>{
 exports.addStudyGroup = (req,res) =>{
   //res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   
+       
     const studygroup = new StudyGroup(req.body);
-    studygroup.studyGroupPostedBy = req.Userprofile;//get user profile info
+    //get users name
+    studygroup.studyGroupPostedBy = req.Userprofile.name;
+    //get posting date
+    studygroup.studyPostDate = req.Userprofile.PostDate;
+  
     studygroup.save((err)=>{
       if (err) res.send(err).status(500);
       res.status(200).json(studygroup);
@@ -65,7 +73,7 @@ exports.addStudyGroup = (req,res) =>{
 exports.updatStudyGroup = (req,res,next) =>{
   let studygroup = req.studyGroupPost;
   studygroup = _.extend(studygroup, req.body);
-  studygroup.updated = Date.now();
+  studygroup.updated = Date.now(); 
   studygroup.save(err=>{
     if(err){
     return res.status(400).json({error: err});}

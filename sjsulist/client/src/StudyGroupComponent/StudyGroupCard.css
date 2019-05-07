@@ -1,0 +1,49 @@
+.card {
+  border: 2px  ;
+  border-radius: 25px;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center; 
+}
+ 
+
+.header{
+  border-radius: 25px 25px 0px 0px;
+  text-align: center;  
+  color: white;
+  background-color: #0d47a1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+.button-del {
+  top: 0px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  background-color: #808080; 
+}
+
+.button-del:hover {
+  opacity: 0.8;
+}
+
+
+.button-main {
+  top: 0px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  background-color:#808080 ;
+}
+
+.button-main:hover {
+  opacity: 0.8;
+}

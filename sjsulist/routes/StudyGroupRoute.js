@@ -20,7 +20,7 @@ router.post("/addstudygroup/:userId", addStudyGroup);
 router.get("/studygroupby/:userId", signiRequired, getStudyGroupByUserId);
 
 //update item using item id
-router.put("/updatestudygroup/:studygroupid", signiRequired, updatStudyGroup);
+router.put("/updatestudygroup/:studygroupid",  updatStudyGroup);
 
 //remove item post from database
 router.delete("/studygroupdelete/:studygroupid",signiRequired, deleteStudyGroup);

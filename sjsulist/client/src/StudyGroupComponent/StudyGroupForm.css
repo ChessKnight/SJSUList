@@ -10,9 +10,32 @@
 .postBtn{
   text-align: center;
   left: 50%; 
+  position: center;
+  align-items: center; 
+  background-color: #0d47a1;
+  color: white; 
+  border-radius: 4px;
+  margin: 1px;  
+  width: 100%;
+}
+.cardtop{
+  text-align: center;
+  left: 50%; 
   position: right;
   align-items: center; 
   background-color: #0d47a1;
+  color: white;  
+  width: 100%;
+    
+
+}
+
+.postBtn2{
+  text-align: center;
+  left: 50%; 
+  position: center;
+  align-items: center; 
+  background-color: #808080;
   color: white; 
   border-radius: 4px;
   margin: 1px;  

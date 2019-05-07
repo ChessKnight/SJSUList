@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import axios from 'axios';
-import './StudyGroupForm.css';
-
+import './StudyGroupForm.css'; 
 
 const styles = theme => ({
   container: {
@@ -26,7 +25,7 @@ const styles = theme => ({
 
 class StudyGroupForm extends React.Component {
   state = {
-      Title: '',
+      title: '',
       description: ''
   }
 
@@ -40,9 +39,9 @@ class StudyGroupForm extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    const { Title, description  } = this.state
+    const { title, description  } = this.state
     const addStudyGroup = {
-        Title: Title,
+        title: title,
         description: description 
     }
 
@@ -51,6 +50,8 @@ class StudyGroupForm extends React.Component {
       const userId = localStorage.getItem('userId'); 
       axios.post(`http://localhost:5000/addstudygroup/${userId}`, addStudyGroup)
         .then(res => console.log(res.data));
+
+    this.props.history.push('/StudyGroup')
      
   }
 
@@ -59,6 +60,7 @@ class StudyGroupForm extends React.Component {
 render() {
   
     return (
+      <div className="container">
       <div>
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -68,10 +70,10 @@ render() {
           <div className="g-form">
             <div className="group-subject">
               <div class="input-field col s6">
-                <h6>Subject:</h6>
+                <h6>Title:</h6>
                 <input
                   placeholder="Calc I, physics 50, eng 1A, etc."
-                  id='Title' onChange={this.handleChange}
+                  id='title' onChange={this.handleChange}
                   type="text"
                   class="validate"
                 />
@@ -91,16 +93,27 @@ render() {
                 />
               </div>
             </div>
-
-            <button
-              class="btn postBtn"
-              type="submit"
-              name="action"
-            >
-              Post!
-            </button>
+              <a href="/Items">
+                    <button 
+                    class="btn postBtn"
+                    type="submit"
+                    name="action"
+                  >
+                    Post!
+                  </button>
+              </a>
           </div>
         </form>
+        <div> 
+            <a href="/StudyGroup">
+                      <button class="btn postBtn2" type="submit" name="action">
+              Cancel 
+                      </button>
+
+            </a>
+              
+        </div>
+      </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
-const mongoose  = require ('mongoose');
-const {ObjectId} = mongoose.Schema;
+const mongoose  = require ('mongoose'); 
+// const {ObjectId} = mongoose.Schema;
 
 const StudyGroupSchema = new mongoose.Schema({
     title: {
@@ -12,7 +12,7 @@ const StudyGroupSchema = new mongoose.Schema({
         type: [String]
     },
     studyGroupPostedBy:{
-        type: ObjectId,
+        type: String ,
         ref: "User"
     },
     PostDate: {
@@ -20,4 +20,8 @@ const StudyGroupSchema = new mongoose.Schema({
         default: Date.now
     }
 })
+
+
+ 
+
 module.exports = mongoose.model('StudyGroup', StudyGroupSchema);

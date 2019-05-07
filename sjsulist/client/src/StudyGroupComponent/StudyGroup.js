@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import StudyGroupCard from "./StudyGroupCard";
+import StudyGroupCard2 from "./StudyGroupCard2";
 import './StudyGroup.css'
 import SearchBar from '../Tools/SearchBar'
 
@@ -82,7 +82,7 @@ searching=(event)=>{
 
         <div className="study-group"> 
  
-         <StudyGroupCard value={d}/> 
+         <StudyGroupCard2 value={d}/> 
          
        </div>
 
