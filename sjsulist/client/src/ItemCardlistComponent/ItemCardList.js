@@ -27,9 +27,10 @@ class ItemCardList extends Component{
         
     }
  //this is for sorting   
-    sort=(event)=>{
+    sort(v){
 
         console.log("l");
+        console.log(v);
     }
 //This filters the list based on the search
     searchClicked=(event)=>{

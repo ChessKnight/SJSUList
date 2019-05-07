@@ -16,7 +16,7 @@ class Sort extends Component{
         var c= event.target.value;
         console.log(c);
         this.setState({current: c});
-        this.props.sortApplied();
+        this.props.sortApplied(event.target.value);
 
     }
 
