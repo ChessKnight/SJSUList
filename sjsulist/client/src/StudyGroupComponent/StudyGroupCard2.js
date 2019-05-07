@@ -37,25 +37,11 @@ return (
                     <div>
                       {(localStorage.getItem('username') !== props.value[i].studyGroupPostedBy) && (
                         <div>
-                  <button class="button-main" type="submit" onClick={( ) => {
-                    
-                    
-                    const studygroupid = props.value[i]._id
-                    console.log(studygroupid)
-                     
-                    let updatStudyGroup =  function update(){
-                      props.value[i].members = props.value[i].members.push(localStorage.getItem('username'))
-                    }
-                    
-                     
-                    axios.put(`http://localhost:5000/updatestudygroup/${studygroupid}`,  updatStudyGroup )
-                      .then(res => res.data)
-                     
-                      }
+                  <button class="button-main" type="submit"  value ={props.value[i]._id+ i} onClick={ props.join} 
                   
                   
                   
-                  }>Join Study Group!</button>
+                  >Join Study Group!</button>
                         </div>
                       )}
                     </div>

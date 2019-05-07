@@ -7,7 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import axios from "axios";
 
 //Material-ui card component design
 
@@ -65,8 +65,9 @@ function StudyGroupCard(props) {
                   </Typography>
               </CardActions>
               <CardActions>
-                <Button size="small" color="primary">
-                  Join Study Group
+                <Button size="small" color="primary"
+                >
+                  Join Study Group: {props.value[i].members}
                   </Button>
                 <Button size="small" color="primary">
                   Delete post

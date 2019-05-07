@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import StudyGroupCard2 from "./StudyGroupCard2";
+import StudyGroupCard from "./StudyGroupCard";
 import './StudyGroup.css'
-import SearchBar from '../Tools/SearchBar'
+import SearchBar from '../Tools/SearchBar';
+import axios from 'axios';
+
 
 class StudyGroup extends Component {
 
@@ -35,6 +38,29 @@ class StudyGroup extends Component {
     this.setState({data: d});
     console.log(this.state.data);
 
+}
+studyGroup=(event)=>{
+  console.log(event.target.value)
+  var a = event.target.value.substring(0,event.target.value.length- 1) ;
+  var b = event.target.value.substring(event.target.value.length- 1) ;
+  console.log(a);
+  console.log(b);
+  console.log(this.state.data[b]._id);
+
+//   event.preventDefault();
+        
+ const updateStudyGroup = {
+    members: this.state.data[b].members.push("fakeid"),
+}
+console.log(updateStudyGroup.members[0]);
+
+//         const userId = localStorage.getItem('userId'); 
+
+//         axios.put(`http://localhost:5000/"/updatestudygroup/${event.target.value}`,  updateStudyGroup)
+//             .then(res => console.log(res.data));
+
+    
+//   console.log(event.target.value)
 }
 //this is a hlper for searching
 searching=(event)=>{
@@ -82,7 +108,7 @@ searching=(event)=>{
 
         <div className="study-group"> 
  
-         <StudyGroupCard2 value={d}/> 
+         <StudyGroupCard2 value={d} join={this.studyGroup}/> 
          
        </div>
 
