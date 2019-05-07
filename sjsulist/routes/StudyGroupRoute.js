@@ -7,7 +7,10 @@ const {
   getStudyGroupByUserId,
   updatStudyGroup,
   deleteStudyGroup,
-  getStudyGroup
+  getStudyGroup,
+  joinstudygroup,
+  leaveStudyGroup
+
 } = require("../controller/StudyGroupController");
     const{signiRequired}=require("../controller/RegistrationController");
     const {userId}=require("../controller/UserController");
@@ -24,6 +27,12 @@ router.put("/updatestudygroup/:studygroupid",  updatStudyGroup);
 
 //remove item post from database
 router.delete("/studygroupdelete/:studygroupid",signiRequired, deleteStudyGroup);
+
+//join studygroup
+router.put("/jointudygroup",signiRequired,joinstudygroup);
+
+//leave study group
+router.put("/leavestudygroup",signiRequired,leaveStudyGroup);
 
 // any route containing :userId, our app will first execute userId()
 router.param("userId", userId);

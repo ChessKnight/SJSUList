@@ -95,3 +95,41 @@ exports.deleteStudyGroup = (req,res) =>{
   });
 };
 
+
+//Join study group
+
+exports.joinstudygroup = (res,req) =>{
+  StudyGroup.findByIdAndRemove(
+    req.body.studyGroupId,
+    { $push: { follow: req.body.userId } },
+    { new: true }
+  ).exec((err, result) => {
+    if (err) {
+      return res.status(400).json({
+        error: err
+      });
+    } else {
+      res.json(result);
+    }
+  });
+    
+
+};
+
+//leave study group
+exports.leaveStudyGroup = (res,req)=>{
+  StudyGroup.findByIdAndUpdate(req.body.studyGroupId, 
+    {$pull: {follow: req.body.userId}}, {new: true}
+    )
+    .exec((err,result)=>{
+      if(err){
+        return res.status(400).json({
+          error: err
+        });
+      } else{
+         res.json(result);
+      }
+    });
+};
+
+

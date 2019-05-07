@@ -1,5 +1,5 @@
 const mongoose  = require ('mongoose'); 
-// const {ObjectId} = mongoose.Schema;
+const {ObjectId} = mongoose.Schema;
 
 const StudyGroupSchema = new mongoose.Schema({
     title: {
@@ -18,7 +18,11 @@ const StudyGroupSchema = new mongoose.Schema({
     PostDate: {
         type: Date,
         default: Date.now
-    }
+    },
+    follow: [{
+        type: ObjectId,
+        ref: "User"
+    }]
 })
 
 
