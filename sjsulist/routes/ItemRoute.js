@@ -11,7 +11,7 @@ router.post("/addItem/:userId", addItem);
 router.get("/itemsby/:userId",signiRequired,getItemByUserId);
 
 //update item using item id
-router.put("/itemupdate/:postId",signiRequired,thePoster,updateItem);
+router.put("/itemupdate/:postId",signiRequired,updateItem);
 
 //remove item post from database
 router.delete("/itemdelete/:postId",signiRequired,  deleteItem);
