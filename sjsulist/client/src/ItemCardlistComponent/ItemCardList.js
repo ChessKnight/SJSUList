@@ -26,12 +26,59 @@ class ItemCardList extends Component{
         .then(data=> this.setState({data},this.setState({constantData:data})));
         
     }
- //this is for sorting   
-    sort(v){
 
-        console.log("l");
-        console.log(v);
+
+
+ //this is for sorting   
+    sort=(v)=>{
+
+        //console.log('from sort item', v)
+
+        const a = this.state.constantData;
+        //console.log(a)
+        
+        let newList = []; 
+
+        for (var i = 0; i < a.length; i++) {
+
+            // sorting items in reverser order
+            if ((a[i]=== true)  && (v === "Most Recent")) {
+                newList.reverse()
+            }
+            // sorting items in less then 100
+            else if (a[i].price < 100 && (v === "price<100")) {
+                newList.push(a[i])
+            }
+
+            // sorting items in 100-200 price range
+            else if ((a[i].price > 99) && (a[i].price <  201) && (v === "price 100-200")) {
+                newList.push(a[i])
+            }
+
+            // sorting items in 200-300 price range
+            else if ((a[i].price > 199) && (a[i].price < 301) && (v === "price 200-300")) {
+                newList.push(a[i])
+            }
+
+            // sorting items in 300-400 price range
+            else if ((a[i].price > 299) && (a[i].price < 401) && (v === "price 200-300")) {
+                newList.push(a[i])
+            }
+
+            // sorting items more than 400+ price range
+            else if ((a[i].price > 400) && (v === "price 400+")) {
+                newList.push(a[i])
+            }
+            
+ 
+        }
+        console.log(newList)
+        this.setState({ data: newList });
+
+        //console.log("from itemlist",v);
     }
+
+
 //This filters the list based on the search
     searchClicked=(event)=>{
         var c = this.state.constantData;

@@ -13,8 +13,10 @@ class Sort extends Component{
 
     }
     sortBtnClicked=(event)=>{
+
+         
         var c= event.target.value;
-        console.log(c);
+       // console.log('from sort.js', c);
         this.setState({current: c});
         this.props.sortApplied(event.target.value);
 
@@ -29,8 +31,11 @@ class Sort extends Component{
                 <li>
                     <lu>
                             <li><button  className="topbtn dropitem" value="Most Recent" onClick={this.sortBtnClicked}>Most Recent</button></li>
-                            <li><button className="topbtn dropitem" value='Price($-$$)' onClick={this.sortBtnClicked}>Price($-$$)</button></li>
-                            <li><button className="topbtn dropitem" value="Price($$-$)" onClick={this.sortBtnClicked}>Price($$-$)</button></li>
+                            <li><button className="topbtn dropitem" value='price<100' onClick={this.sortBtnClicked}>Price(less than 100)</button></li>
+                            <li><button className="topbtn dropitem" value="price 100-200" onClick={this.sortBtnClicked}>Price 100-200</button></li>
+                            <li><button className="topbtn dropitem" value="price 200-300" onClick={this.sortBtnClicked}>Price 200-300</button></li>
+                            <li><button className="topbtn dropitem" value="price 300-400" onClick={this.sortBtnClicked}>Price 300-400</button></li>
+                            <li><button className="topbtn dropitem" value="price 400+" onClick={this.sortBtnClicked}>Price(more than 400)</button></li>
                     </lu>
                 </li>
             </ul>
