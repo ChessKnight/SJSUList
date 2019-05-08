@@ -16,6 +16,8 @@ class Profile extends Component{
             email: "",
             studentMajor: "",
             user: [],
+            items: [],
+            userItems:[],
             created: ""
     }
 }
@@ -25,12 +27,36 @@ class Profile extends Component{
         //this is where it fetches the data based on the user id
         const userId = this.props.match.params.userId;
         axios.get(`http://localhost:5000/userby/${userId}`)
-            .then(res => {this.setState({user: res.data}); console.log(res.data)}) 
+            .then(res => {this.setState({user: res.data})}) 
             //this returns the data containing
+        fetch('http://localhost:5000/')
+        .then(response => response.json())
+        .then(data=> {this.setState({items: data});this.getItems()});
     }
 
+    getItems(){
+        console.log("g");
+        var a =[];
+        var b = this.state.items;
+        console.log(b);
+        const userId = this.props.match.params.userId;
+        console.log(userId);
+        for(var i =0; i<b.length; i++)
+        {
+            try{
+                if(b[i].itemPostedBy.includes(userId)){
+                    a.push(b[i]);
+                    console.log("yes");
+                }
+            }catch{
+                
+            }
+        }
+        this.setState({userItems: a});
+    }
     render(){
-        console.log(this.state.user.name)
+        
+        
         return(
             <div className="profile">
             
@@ -42,7 +68,7 @@ class Profile extends Component{
                     <GroupList></GroupList>
                 </Container>
                 <Container value="Store">
-                    <Store></Store>
+                    <Store items={this.state.userItems}></Store>
                 </Container>
                  
             </div>
