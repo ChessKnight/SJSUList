@@ -1,3 +1,4 @@
+//this is a scroll component, wrap item inside it
 import React from 'react';
 import './Scroll.css';
 

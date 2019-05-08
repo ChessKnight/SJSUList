@@ -70,7 +70,7 @@ console.log(updateStudyGroup.members[0]);
     
 
 
-    
+
   }
 
 
@@ -128,8 +128,8 @@ searching=(event)=>{
 
         <div className="study-group"> 
  
-         <StudyGroupCard2 value={d} join={this.studyGroup}/> 
           <StudyGroupCard2 value={d} delete={this.deleteGroup} /> 
+         <StudyGroupCard2 value={d} join={this.studyGroup} index="0"/> 
          
        </div>
 
