@@ -40,14 +40,11 @@ class StudyGroupForm extends React.Component {
   submitForm = (e) => {
     e.preventDefault();
     const { title, description  } = this.state
+    const userId = localStorage.getItem('userId'); 
     const addStudyGroup = {
-        title: title,
-        description: description 
-    }
-
-
-     
-      const userId = localStorage.getItem('userId'); 
+      title: title,
+      description: description,
+  }
       axios.post(`http://localhost:5000/addstudygroup/${userId}`, addStudyGroup)
         .then(res => console.log(res.data));
 

@@ -17,6 +17,8 @@ class Profile extends Component{
             studentMajor: "",
             user: [],
             items: [],
+            studygroups:[],
+            userstudygroups: [],
             userItems:[],
             created: ""
     }
@@ -27,32 +29,50 @@ class Profile extends Component{
         //this is where it fetches the data based on the user id
         const userId = this.props.match.params.userId;
         axios.get(`http://localhost:5000/userby/${userId}`)
-            .then(res => {this.setState({user: res.data})}) 
+            .then(res => {this.setState({user: res.data})});
             //this returns the data containing
         fetch('http://localhost:5000/')
         .then(response => response.json())
         .then(data=> {this.setState({items: data});this.getItems()});
+        //for fetching study groups
+        fetch('http://localhost:5000/getstudygroup')
+        .then(response => response.json())
+        .then(data=> {this.setState({studygroups: data});this.getGroups()});
     }
 
     getItems(){
-        console.log("g");
         var a =[];
         var b = this.state.items;
-        console.log(b);
         const userId = this.props.match.params.userId;
-        console.log(userId);
         for(var i =0; i<b.length; i++)
         {
             try{
                 if(b[i].itemPostedBy.includes(userId)){
                     a.push(b[i]);
-                    console.log("yes");
                 }
             }catch{
                 
             }
         }
         this.setState({userItems: a});
+    }
+
+    getGroups(){
+        var a =[];
+        var b = this.state.studygroups;
+        console.log(b);
+        const userId = this.props.match.params.userId;
+        for (var i =0; i<b.length; i++){
+            try{
+                if(b[i].studyGroupPostedBy.includes(userId))
+                {
+                    a.push(b[i]);
+                }
+            }catch{
+
+            }
+        }
+        this.setState({userstudygroups: a});
     }
     render(){
         
@@ -65,7 +85,7 @@ class Profile extends Component{
                 </User>
                 
                 <Container value="Groups">
-                    <GroupList></GroupList>
+                    <GroupList studygroups = {this.state.userstudygroups}></GroupList>
                 </Container>
                 <Container value="Store">
                     <Store items={this.state.userItems}></Store>

@@ -1,8 +1,11 @@
 import React from 'react';
+import StudyGroupCard2 from '../StudyGroupComponent/StudyGroupCard2';
+import Scroll from '../Container/Scroll';
+import { checkPropTypes } from 'prop-types';
 
 const GroupList = (props)=>{
 
-    if(true){
+    if(props.studygroups.length ===0){
         return(
             <div>
                 <h6>You have no groups.</h6>
@@ -11,10 +14,9 @@ const GroupList = (props)=>{
     }
     else{
         return(
-            <div>
-                <h6>Random group.</h6>
-                <button>Leave Group</button>
-            </div>
+            <Scroll>
+                <StudyGroupCard2 value={props.studygroups}></StudyGroupCard2>
+            </Scroll>
         );
     }
 
