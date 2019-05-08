@@ -3,7 +3,7 @@ import React from 'react';
 const UserInfo =(props)=>{
     return(
         <div>
-            <p>Major: </p>
+            <p>Major: {props.major}</p>
             <p>About me: </p>
         </div>
     );

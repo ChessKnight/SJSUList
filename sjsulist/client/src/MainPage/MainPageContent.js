@@ -18,6 +18,10 @@ class MainPageContent extends Component{
         fetch('http://localhost:5000/')
         .then(response => response.json())
         .then(data=> this.setState({data}));
+
+        fetch('http://localhost:5000/getstudygroup')
+    .then(response => response.json())
+    .then(data=> this.setState({data}));
     }
     render(){
         return(

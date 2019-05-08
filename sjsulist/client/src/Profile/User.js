@@ -4,15 +4,14 @@ import Container from '../Container/Container';
 import UserInfo from './UserInfo';
 
 const User =(props)=>{
-    const usersName = localStorage.getItem('username')
     return(
         <div>
-            <h4 className="userName">{usersName}</h4>
+            <h4 className="userName">{props.username}</h4>
             <hr></hr>
             <div className="user-profile">
             <img alt="user picture" src="/images/profilepic.png" className="userPic"></img>
             <Container value="User Info">
-                    <UserInfo></UserInfo>
+                    <UserInfo major={props.major}></UserInfo>
             </Container>
             </div>
         </div>

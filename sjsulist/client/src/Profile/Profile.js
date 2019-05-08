@@ -25,7 +25,8 @@ class Profile extends Component{
         //this is where it fetches the data based on the user id
         const userId = this.props.match.params.userId;
         axios.get(`http://localhost:5000/userby/${userId}`)
-            .then(res => console.log(res.data)) 
+            .then(res => {this.setState({user: res.data}); console.log(res.data)}) 
+            //this returns the data containing
     }
 
     render(){
@@ -33,9 +34,10 @@ class Profile extends Component{
         return(
             <div className="profile">
             
-                <User>
-                    <UserInfo name={this.state.user.name}/> 
+                <User username={this.state.user.name} major = {this.state.user.studentMajor}>
+                    
                 </User>
+                
                 <Container value="Groups">
                     <GroupList></GroupList>
                 </Container>
