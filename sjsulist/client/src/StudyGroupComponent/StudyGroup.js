@@ -61,6 +61,27 @@ console.log(updateStudyGroup.members[0]);
     
 //   console.log(event.target.value)
 }
+
+
+
+//study group delete option 
+
+  deleteGroup  = (event) => {
+    
+
+
+    
+  }
+
+
+
+//study group delete option method ends here 
+
+
+
+
+
+ 
 //this is a hlper for searching
 searching=(event)=>{
     this.setState({searchString:event.target.value});
@@ -108,6 +129,7 @@ searching=(event)=>{
         <div className="study-group"> 
  
          <StudyGroupCard2 value={d} join={this.studyGroup}/> 
+          <StudyGroupCard2 value={d} delete={this.deleteGroup} /> 
          
        </div>
 

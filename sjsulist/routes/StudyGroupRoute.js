@@ -26,7 +26,7 @@ router.get("/studygroupby/:userId", getStudyGroupByUserId);
 router.put("/updatestudygroup/:studygroupid",  updatStudyGroup);
 
 //remove item post from database
-router.delete("/studygroupdelete/:studygroupid",signiRequired, deleteStudyGroup);
+router.delete("/studygroupdelete/:studygroupid", deleteStudyGroup);
 
 //join studygroup
 router.put("/jointudygroup",signiRequired,joinstudygroup);
