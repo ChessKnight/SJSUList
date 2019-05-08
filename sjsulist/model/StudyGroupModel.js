@@ -15,6 +15,10 @@ const StudyGroupSchema = new mongoose.Schema({
         type: String ,
         ref: "User"
     },
+    studyGroupPostedById:{
+        type: String,
+        ref: "User"
+    },
     PostDate: {
         type: Date,
         default: Date.now

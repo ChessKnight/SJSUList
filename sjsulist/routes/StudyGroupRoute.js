@@ -20,7 +20,7 @@ router.get("/getstudygroup", getStudyGroup);
 router.post("/addstudygroup/:userId", addStudyGroup);
 
 //get studygroups posted by a person
-router.get("/studygroupby/:userId", signiRequired, getStudyGroupByUserId);
+router.get("/studygroupby/:userId", getStudyGroupByUserId);
 
 //update item using item id
 router.put("/updatestudygroup/:studygroupid",  updatStudyGroup);

@@ -47,6 +47,9 @@ exports.addStudyGroup = (req,res) =>{
     const studygroup = new StudyGroup(req.body);
     //get users name
     studygroup.studyGroupPostedBy = req.Userprofile.name;
+
+    //adding users id when post
+    studygroup.studyGroupPostedById = req.Userprofile._id;
     //get posting date
     studygroup.studyPostDate = req.Userprofile.PostDate;
   
