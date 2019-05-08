@@ -13,7 +13,8 @@ return (
        {
          
         props.value.map((user, i) => {
-
+          if(i>=props.index)
+          {
       return (    
          
           <div class="card">
@@ -59,7 +60,7 @@ return (
                 
           </div>   
   );
-   
+                        }
         })
 
 }

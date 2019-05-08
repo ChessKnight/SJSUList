@@ -32,15 +32,14 @@ class Profile extends Component{
         //this is where it fetches the data based on the user id
         const userId = this.props.match.params.userId;
         axios.get(`http://localhost:5000/userby/${userId}`)
-            .then(res => {this.setState({user: res.data})});
-            //this returns the data containing
+            .then(res => {this.setState({user: res.data})}).then(
         fetch('http://localhost:5000/')
         .then(response => response.json())
-        .then(data=> {this.setState({items: data});this.getItems()});
+        .then(data=> {this.setState({items: data});this.getItems()})).then(
         //for fetching study groups
         fetch('http://localhost:5000/getstudygroup')
         .then(response => response.json())
-        .then(data=> {this.setState({studygroups: data});this.getGroups()});
+        .then(data=> {this.setState({studygroups: data});this.getGroups()}))
     }
 
     getItems(){

@@ -5,6 +5,7 @@ import './MainPageContent.css';
 import NewItems from './NewItems';
 import Scroll from '../Container/Scroll';
 import Welcome from './Welcome';
+import NewGroups from './NewGroups';
 
 class MainPageContent extends Component{
     constructor(){
@@ -21,7 +22,7 @@ class MainPageContent extends Component{
 
         fetch('http://localhost:5000/getstudygroup')
     .then(response => response.json())
-    .then(data=> this.setState({data}));
+    .then(data=> {this.setState({dataGroup: data})});
     }
     render(){
         return(
@@ -35,7 +36,7 @@ class MainPageContent extends Component{
                     </Container>
                     <Container value="New Groups!">
                         <Scroll>
-                            <NewItems data={this.state.data}></NewItems>
+                            <NewGroups data = {this.state.dataGroup}></NewGroups>
                         </Scroll>
                     </Container>
                 </div>

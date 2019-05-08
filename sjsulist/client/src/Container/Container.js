@@ -1,3 +1,5 @@
+//this class is a container window. color is blue, value is the header, wrap any content
+
 import React from 'react';
 import './Container.css';
 

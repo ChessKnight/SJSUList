@@ -107,7 +107,7 @@ searching=(event)=>{
 
         <div className="study-group"> 
  
-         <StudyGroupCard2 value={d} join={this.studyGroup}/> 
+         <StudyGroupCard2 value={d} join={this.studyGroup} index="0"/> 
          
        </div>
 
