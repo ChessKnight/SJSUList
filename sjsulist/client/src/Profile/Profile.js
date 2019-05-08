@@ -6,11 +6,14 @@ import GroupList from './GroupList';
 import Store from './Store';
 import axios from 'axios'
 import UserInfo from "./UserInfo";
+import Loader from '../Tools/Loader';
 
 class Profile extends Component{
     constructor() {
         super()
         this.state = {
+            loaderItems: true,
+            loaderGroups: true,
             profileImage:"",
             name: "", 
             email: "",
@@ -33,7 +36,7 @@ class Profile extends Component{
             //this returns the data containing
         fetch('http://localhost:5000/')
         .then(response => response.json())
-        .then(data=> {this.setState({items: data});this.getItems()});
+        .then(data=> {this.setState({items: data, loaderItems:false});this.getItems()});
         //for fetching study groups
         fetch('http://localhost:5000/getstudygroup')
         .then(response => response.json())
@@ -88,7 +91,9 @@ class Profile extends Component{
                     <GroupList studygroups = {this.state.userstudygroups}></GroupList>
                 </Container>
                 <Container value="Store">
-                    <Store items={this.state.userItems}></Store>
+                    <Loader loader ={this.state.loaderItems}>
+                        <Store items={this.state.userItems}></Store>
+                    </Loader>
                 </Container>
                  
             </div>
