@@ -23,7 +23,7 @@ class ItemCardList extends Component{
     componentDidMount(){
         fetch('http://localhost:5000/')
         .then(response => response.json())
-        .then(data=> this.setState({data},this.setState({constantData:data})));
+        .then(data=> {this.setState({data},this.setState({constantData:data}))});
         
     }
 
@@ -81,23 +81,29 @@ class ItemCardList extends Component{
 
 //This filters the list based on the search
     searchClicked=(event)=>{
+       
         var c = this.state.constantData;
+        console.log(c);
         var d = [];
         var s = this.state.searchString;
         for(var i=0; i<c.length; i++){
-            
+            try{
             if(c[i].description.includes(s))
             {
                 d.push(c[i]);
+            }}
+            catch{
+                console.log(i);
             }
         }
         this.setState({data: d});
-        console.log(this.state.data);
+   
 
     }
 //this is a hlper for searching
     searching=(event)=>{
         this.setState({searchString:event.target.value});
+        console.log(this.state.searchString);
     }
    
     render(){

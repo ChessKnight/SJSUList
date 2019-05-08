@@ -36,7 +36,6 @@ class StudyGroup extends Component {
         }
     }
     this.setState({data: d});
-    console.log(this.state.data);
 
 }
 studyGroup=(event)=>{
