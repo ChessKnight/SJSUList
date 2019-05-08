@@ -36,7 +36,7 @@ class Profile extends Component{
             //this returns the data containing
         fetch('http://localhost:5000/')
         .then(response => response.json())
-        .then(data=> {this.setState({items: data, loaderItems:false});this.getItems()});
+        .then(data=> {this.setState({items: data});this.getItems()});
         //for fetching study groups
         fetch('http://localhost:5000/getstudygroup')
         .then(response => response.json())
@@ -57,17 +57,18 @@ class Profile extends Component{
                 
             }
         }
-        this.setState({userItems: a});
+        
+        this.setState({userItems: a, loaderItems:false});
+    
     }
 
     getGroups(){
         var a =[];
         var b = this.state.studygroups;
-        console.log(b);
         const userId = this.props.match.params.userId;
         for (var i =0; i<b.length; i++){
             try{
-                if(b[i].studyGroupPostedBy.includes(userId))
+                if(b[i].studyGroupPostedById.includes(userId))
                 {
                     a.push(b[i]);
                 }
@@ -75,7 +76,7 @@ class Profile extends Component{
 
             }
         }
-        this.setState({userstudygroups: a});
+        this.setState({userstudygroups: a, loaderGroups: false});
     }
     render(){
         
@@ -88,7 +89,9 @@ class Profile extends Component{
                 </User>
                 
                 <Container value="Groups">
-                    <GroupList studygroups = {this.state.userstudygroups}></GroupList>
+                    <Loader loader={this.state.loaderGroups}>
+                        <GroupList studygroups = {this.state.userstudygroups}></GroupList>
+                    </Loader>
                 </Container>
                 <Container value="Store">
                     <Loader loader ={this.state.loaderItems}>
