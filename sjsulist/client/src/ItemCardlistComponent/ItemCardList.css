@@ -1,3 +1,8 @@
+.container{
+    
+    align-content: center;
+    justify-content: center;
+}
 .card-list{
     display: flex;
 }
@@ -25,7 +30,10 @@ padding: 10px;
 }
 .search-filter-sort{
     display: flex;
+    align-content: center;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 .results{
     margin:20px;
