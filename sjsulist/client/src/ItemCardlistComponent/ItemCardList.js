@@ -4,6 +4,7 @@ import './ItemCardList.css';
 import Pager from '../PagerComponent/Pager';
 import SearchBar from '../Tools/SearchBar';
 import Sort from '../Tools/Sort';
+import Loader from '../Tools/Loader';
 
 import ItemForm from '../ItemForm/ItemForm.js';
 
@@ -16,6 +17,7 @@ class ItemCardList extends Component{
             data: [],
             constantData:[],
             searchString: "",
+            loader: true,
             
         }
     }
@@ -23,7 +25,7 @@ class ItemCardList extends Component{
     componentDidMount(){
         fetch('http://localhost:5000/')
         .then(response => response.json())
-        .then(data=> {this.setState({data},this.setState({constantData:data}))});
+        .then(data=> {this.setState({data},this.setState({constantData:data, loader: false}))});
         
     }
 
@@ -124,6 +126,7 @@ class ItemCardList extends Component{
             </div>
             
             <div>
+            <Loader loader={this.state.loader}>
             <ul class="store-list">
                 {this.state.data.map((user, i)=>{
                     return(
@@ -139,6 +142,7 @@ class ItemCardList extends Component{
                 })}
             </ul>
             <Pager></Pager>
+            </Loader>
             </div>
               
         </div>

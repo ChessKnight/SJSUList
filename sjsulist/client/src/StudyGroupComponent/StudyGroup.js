@@ -4,6 +4,7 @@ import StudyGroupCard from "./StudyGroupCard";
 import './StudyGroup.css'
 import SearchBar from '../Tools/SearchBar';
 import axios from 'axios';
+import Loader from '../Tools/Loader';
 
 
 class StudyGroup extends Component {
@@ -14,13 +15,14 @@ class StudyGroup extends Component {
         data: [], 
         searchString:'',
         constantData: [],
+        loader: true,
     }
 }
 
   componentDidMount(){
     fetch('http://localhost:5000/getstudygroup')
     .then(response => response.json())
-    .then(data=> this.setState({data}, this.setState({constantData: data})));
+    .then(data=> this.setState({data}, this.setState({constantData: data, loader:false})));
   }
 
   //This filters the list based on the search
@@ -128,9 +130,10 @@ searching=(event)=>{
 
         <div className="study-group"> 
  
-          <StudyGroupCard2 value={d} delete={this.deleteGroup} /> 
-         <StudyGroupCard2 value={d} join={this.studyGroup} index="0"/> 
-         
+          
+        <Loader loader={this.state.loader}>
+         <StudyGroupCard2 value={d} delete={this.deleteGroup}  join={this.studyGroup} index="0"/> 
+         </Loader>
        </div>
 
       </div>
