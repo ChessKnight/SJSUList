@@ -81,14 +81,10 @@ deleteItem=(event)=>{
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
           <CardHeader 
             avatar={
-              <h5>{this.props.itemName}</h5>
+              <h6 className="fontH">{this.props.itemName}</h6>
             }
-            action={
-              <IconButton>
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={this.props.userId}
+            
+            title=""
             subheader=""
           />
           <CardMedia
@@ -98,7 +94,7 @@ deleteItem=(event)=>{
           />
           <CardContent>
             <Typography component="p">
-            UserName:{this.props.body}
+            User: {this.props.name}
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} disableActionSpacing>
