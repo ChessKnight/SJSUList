@@ -72,6 +72,7 @@ render() {
                   placeholder="Calc I, physics 50, eng 1A, etc."
                   id='title' onChange={this.handleChange}
                   type="text"
+                  required="required"
                   class="validate"
                 />
                 {/* <label for="Name of Item">Name Of Item</label> */}
@@ -85,6 +86,7 @@ render() {
                 <textarea
                   id='description' onChange={this.handleChange}
                   class="materialize-textarea"
+                  required="required"
                   data-length="120"
                   placeholder="Describe the purpose of the group."
                 />

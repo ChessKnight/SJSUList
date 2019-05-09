@@ -5,7 +5,7 @@ import User from './User';
 import GroupList from './GroupList';
 import Store from './Store';
 import axios from 'axios'
-import UserInfo from "./UserInfo";
+//import UserInfo from "./UserInfo";
 import Loader from '../Tools/Loader';
 
 class Profile extends Component{

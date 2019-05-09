@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import StudyGroupCard2 from "./StudyGroupCard2";
-import StudyGroupCard from "./StudyGroupCard";
+//import StudyGroupCard from "./StudyGroupCard";
 import './StudyGroup.css'
 import SearchBar from '../Tools/SearchBar';
 import axios from 'axios';
