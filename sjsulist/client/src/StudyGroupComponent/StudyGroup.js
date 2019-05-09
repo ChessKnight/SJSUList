@@ -41,24 +41,23 @@ class StudyGroup extends Component {
 
 }
 studyGroup=(event)=>{
-  console.log(event.target.value)
   var a = event.target.value.substring(0,event.target.value.length- 1) ;
   var b = event.target.value.substring(event.target.value.length- 1) ;
-  console.log(a);
-  console.log(b);
-  console.log(this.state.data[b]._id);
-
+  const userId = localStorage.getItem('userId'); 
+var c = this.state.data[b].members;
+c.push(userId);
 //   event.preventDefault();
         
  const updateStudyGroup = {
-    members: this.state.data[b].members.push("fakeid"),
+    members: c,
 }
+
 console.log(updateStudyGroup.members[0]);
 
-//         const userId = localStorage.getItem('userId'); 
+         
 
-//         axios.put(`http://localhost:5000/"/updatestudygroup/${event.target.value}`,  updateStudyGroup)
-//             .then(res => console.log(res.data));
+axios.put(`http://localhost:5000/updatestudygroup/${a}`,  updateStudyGroup)
+.then(res => console.log(res.data));
 
     
 //   console.log(event.target.value)
