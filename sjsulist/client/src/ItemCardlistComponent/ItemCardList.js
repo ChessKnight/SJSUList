@@ -157,14 +157,13 @@ class ItemCardList extends Component{
                             
                         <ItemCard image= {this.state.data[i].imageSrc} body={this.state.data[i]._id} description={this.state.data[i].description}
                             price={this.state.data[i].price} contact={this.state.data[i].contact}
-                            name = {this.state.data[i].name} condition={this.state.data[i].condition}
+                            name = {this.state.data[i].name} condition={this.state.data[i].condition} itemName={this.state.data[i].itemName}
                         />
                         </div>
                         
                     );
                 })}
             </ul>
-            <Pager></Pager>
             </Loader>
             </div>
               

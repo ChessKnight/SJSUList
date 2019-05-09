@@ -3,7 +3,7 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import './ItemCard.css'
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, withTheme } from '@material-ui/core/styles';
 import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -24,9 +24,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const styles = theme => ({
   card: {
-    maxWidth: 300,
+    width: 250,
     marginLeft: 25,
     marginBottom: 25,
+    
   },
   media: {
     height: 0,
@@ -63,11 +64,9 @@ class ItemCard  extends React.Component{
       return (
         <Card className={classes.card}>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-          <CardHeader
+          <CardHeader 
             avatar={
-              <Avatar aria-label="Recipe" className={classes.avatar}>
-                <img alt="robo friends user"src={imgpic} style={{width:'40px'}}></img>
-              </Avatar>
+              <h5>{this.props.itemName}</h5>
             }
             action={
               <IconButton>
@@ -75,7 +74,7 @@ class ItemCard  extends React.Component{
               </IconButton>
             }
             title={this.props.userId}
-            subheader="September 14, 2016"
+            subheader=""
           />
           <CardMedia
             className={classes.media}

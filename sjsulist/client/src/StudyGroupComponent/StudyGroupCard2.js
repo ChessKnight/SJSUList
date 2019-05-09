@@ -2,11 +2,27 @@ import React from 'react';
 import './StudyGroupCard.css'; 
 //import axios from "axios";
 import Time from 'react-time-format'
+import { blue } from '@material-ui/core/colors';
 
 const v = {
   id:"",
   index: '',
 }
+const styles = {
+  card: {
+    maxWidth: 1000,
+    margin:20,
+    
+  },
+  media: {
+    
+    width: 140,
+  },
+  typography:{
+    size: 10,
+
+  }
+};
 function StudyGroupCard2(props) {
  
   
