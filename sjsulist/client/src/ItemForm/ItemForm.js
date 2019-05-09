@@ -4,6 +4,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 //import { TextField } from '@material-ui/core';
 import './ItemForm.css';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
 import Clarifai from 'clarifai';
 import image2base64 from '../Tools/ImageDecoder';
@@ -15,6 +16,15 @@ const app = new Clarifai.App({
    var u="";
 
 class ItemForm extends Component {
+
+    constructor(){
+        super()
+        this.routeChange = this.routeChange.bind(this);
+    }
+    routeChange(){
+        let path = `/Items`;
+        this.props.history.push(path);
+    }
     
     state = {
                 imageSrc: "images/placeholder.jpeg",
@@ -92,7 +102,8 @@ class ItemForm extends Component {
 
         const userId = localStorage.getItem('userId'); 
         axios.post(`http://localhost:5000/addItem/${userId}`, addNewItem)
-            .then(res => { console.log(res.data)});
+            .then(res => { console.log(res.data)})
+            .then(this.routeChange);
 
     }
 
@@ -100,7 +111,7 @@ class ItemForm extends Component {
     return (
         <div className="i-form">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-            <form onSubmit={this.submitForm}>
+            <form onSubmit={this.submitForm } >
                 <div className="up-image">
                 <label for="up" class="btn">Select Image</label>
                     <input type="file" onChange={this.onChanger} id="up" className="inputbutton"></input>
@@ -177,20 +188,27 @@ class ItemForm extends Component {
                     </div>
                 </div>
                         
-                
-                <button class="btn waves-effect waves-light submit-button" type="submit" name="action"><a href="/StudyGroup" className="button-submit">Put For Sale!</a> 
-                    <i class="material-icons right">attach_money</i>
+                <button class="btn waves-effect waves-light submit-button" type="submit" name="action"> 
+                    <i class="material-icons right">attach_money</i> sUBMIT
                 </button>
-
-
-                    
-
+                
+                
+               
                 
 
             </form>
+
+            
+
+            <a href="/Items">
+                      <button class="btn postBtn2" type="submit" name="action">
+              Cancel 
+                      </button>
+
+            </a>
         </div>
     )
   }
 }
 
-export default ItemForm;
+export default withRouter(ItemForm);
