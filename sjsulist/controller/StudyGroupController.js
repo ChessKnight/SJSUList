@@ -102,7 +102,7 @@ exports.deleteStudyGroup = (req,res) =>{
 //Join study group
 
 exports.joinstudygroup = (res,req) =>{
-  StudyGroup.findByIdAndRemove(
+  StudyGroup.findByIdAndUpdate(
     req.body.studyGroupId,
     { $push: { follow: req.body.userId } },
     { new: true }

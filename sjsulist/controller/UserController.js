@@ -16,20 +16,20 @@ exports.userId = (req, res, next, id) => {
   });
 };
 
-exports.hasAuthorized = (req, res, next) => {
-  const authorization =
-    //This shows authorized user
-    req.Userprofile &&
-    req.authentication &&
-    req.Userprofile._id === req.authentication._id;
-  //is the user is not authorized
-  if (!authorization) {
-    return res.status(403).json({
-      error: "User is not authorised for this operation "
-    });
-  }
-  next();
-};
+// exports.hasAuthorized = (req, res, next) => {
+//   const authorization =
+//     //This shows authorized user
+//     req.Userprofile &&
+//     req.authentication &&
+//     req.Userprofile._id === req.authentication._id;
+//   //is the user is not authorized
+//   if (!authorization) {
+//     return res.status(403).json({
+//       error: "User is not authorised for this operation "
+//     });
+//   }
+//   next();
+// };
 
 
 //show all users with information
@@ -50,7 +50,7 @@ exports.allusers = (req,res) =>{
 exports.getUserById = (req,res) =>{
     //to hide the information for sensetive info we used undefined
     //with the request
-    req.Userprofile.hashed_password = undefined;
+    req.Userprofile.hashed_password = undefined; //to hide the hash apassword from console
     req.Userprofile.salt = undefined;
     //to get the user information from the profile we create in userId()
     return res.json(req.Userprofile)

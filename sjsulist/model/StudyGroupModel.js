@@ -22,11 +22,11 @@ const StudyGroupSchema = new mongoose.Schema({
     PostDate: {
         type: Date,
         default: Date.now
-    },
-    follow: [{
-        type: ObjectId,
-        ref: "User"
-    }]
+    }
+    // follow: [{
+    //     type: ObjectId,
+    //     ref: "User"
+    // }]
 })
 
 

@@ -92,24 +92,24 @@ exports.deleteItem = (req,res) =>{
 };
 
 //to check if the item  posted is for the user who post it 
-exports.thePoster = (req,res,next)=>{
-  let thePoster =
-    req.item &&
-    req.authantication &&
-    req.item.itemPostedBy._id 
-    == req.authantication._id;
-    console.log("req.item", req.item);
-    console.log("req.auth",req.authantication);
-    console.log("req.item.postedby",req.item.itemPostedBy._id);
-    console.log("req.auth.id",req.authantication._id);
+// exports.thePoster = (req,res,next)=>{
+//   let thePoster =
+//     req.item &&
+//     req.authantication &&
+//     req.item.itemPostedBy._id 
+//     == req.authantication._id;
+//     console.log("req.item", req.item);
+//     console.log("req.auth",req.authantication);
+//     console.log("req.item.postedby",req.item.itemPostedBy._id);
+//     console.log("req.auth.id",req.authantication._id);
 
-  if(!thePoster){
-    return res.status(403).json({
-      error: "You can't change the item, Log in first"
-    });
-    next();
-  }
-}
+//   if(!thePoster){
+//     return res.status(403).json({
+//       error: "You can't change the item, Log in first"
+//     });
+//     next();
+//   }
+// }
 
  
 
