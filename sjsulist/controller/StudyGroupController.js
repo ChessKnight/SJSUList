@@ -104,7 +104,7 @@ exports.deleteStudyGroup = (req,res) =>{
 exports.joinstudygroup = (res,req) =>{
   StudyGroup.findByIdAndUpdate(
     req.body.studyGroupId,
-    { $push: { follow: req.body.userId } },
+    { $push: { members: req.body.userId } },
     { new: true }
   ).exec((err, result) => {
     if (err) {
@@ -122,7 +122,7 @@ exports.joinstudygroup = (res,req) =>{
 //leave study group
 exports.leaveStudyGroup = (res,req)=>{
   StudyGroup.findByIdAndUpdate(req.body.studyGroupId, 
-    {$pull: {follow: req.body.userId}}, {new: true}
+    {$pull: {members: req.body.userId}}, {new: true}
     )
     .exec((err,result)=>{
       if(err){
