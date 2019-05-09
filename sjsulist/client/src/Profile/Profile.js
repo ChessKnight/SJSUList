@@ -61,6 +61,17 @@ class Profile extends Component{
     
     }
 
+    deleteGroup  = (event) => {
+        const id = event.target.id;
+    
+        var deleteStudyGroup={
+          _id:"",
+        }
+        
+        axios.delete(`http://localhost:5000/studygroupdelete/${id}`, deleteStudyGroup )
+        .then(window.location.reload());
+     }
+
     getGroups(){
         var a =[];
         var b = this.state.studygroups;
@@ -83,13 +94,13 @@ class Profile extends Component{
         return(
             <div className="profile">
             
-                <User username={this.state.user.name} major = {this.state.user.studentMajor}>
+                <User username={this.state.user.name} major = {this.state.user.studentMajor} contact ={this.state.user.email}>
                     
                 </User>
                 
                 <Container value="Groups">
                     <Loader loader={this.state.loaderGroups}>
-                        <GroupList studygroups = {this.state.userstudygroups}></GroupList>
+                        <GroupList studygroups = {this.state.userstudygroups} delete ={this.deleteGroup}></GroupList>
                     </Loader>
                 </Container>
                 <Container value="Store">

@@ -15,7 +15,7 @@ const GroupList = (props)=>{
     else{
         return(
             <Scroll>
-                <StudyGroupCard2 value={props.studygroups} index="0"></StudyGroupCard2>
+                <StudyGroupCard2 value={props.studygroups} index="0" delete={props.delete}></StudyGroupCard2>
             </Scroll>
         );
     }

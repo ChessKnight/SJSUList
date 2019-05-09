@@ -4,7 +4,7 @@ const UserInfo =(props)=>{
     return(
         <div>
             <p>Major: {props.major}</p>
-            <p>About me: </p>
+            <p>Contact: {props.contact}</p>
         </div>
     );
 }
