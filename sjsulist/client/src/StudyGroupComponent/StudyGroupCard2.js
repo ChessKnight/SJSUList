@@ -2,7 +2,10 @@ import React from 'react';
 import './StudyGroupCard.css'; 
 import axios from "axios";
 
-
+const v = {
+  id:"",
+  index: '',
+}
 function StudyGroupCard2(props) {
  
   
@@ -13,6 +16,8 @@ return (
        {
          
         props.value.map((user, i) => {
+          v.id= props.value[i]._id;
+          v.index=i;
           if(i>=props.index)
           {
       return (    
@@ -38,7 +43,7 @@ return (
                     <div>
                       {(localStorage.getItem('username') !== props.value[i].studyGroupPostedBy) && (
                         <div>
-                  <button class="button-main" type="submit"  value ={props.value[i]._id+ i} onClick={ props.join} 
+                  <button class="button-main" type="submit"  id={props.value[i]._id} value={i} onClick={ props.join} 
                   
                   
                   
@@ -51,7 +56,7 @@ return (
                     <div>
                         {(localStorage.getItem('username') === props.value[i].studyGroupPostedBy) && (
                             <div>
-                  <button class="button-del" type="submit" value={props.value[i]._id } onClick={props.delete}>Delete Post</button>
+                  <button class="button-del" type="submit" value={v} onClick={props.delete}>Delete Post</button>
                             </div>
                           )}
                       </div>
