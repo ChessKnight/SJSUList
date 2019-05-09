@@ -47,12 +47,12 @@ studyGroup=(event)=>{
   
   const id = event.target.id;
   
-  const userId = localStorage.getItem('userId'); 
+  const userId = localStorage.getItem('username'); 
   
 
 //   event.preventDefault();
 var currentMembers = this.state.data[index].members;
-currentMembers.push(userId);
+currentMembers.push(userId + ', ');
 console.log(this.state.data[index].members);
  var updateStudyGroup = {
   members: currentMembers,
@@ -73,7 +73,6 @@ axios.put(`http://localhost:5000/updatestudygroup/${id}`,  updateStudyGroup)
 //study group delete option 
 
   deleteGroup  = (event) => {
-    const index = event.target.value;
     const id = event.target.id;
 
     var deleteStudyGroup={

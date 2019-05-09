@@ -11,7 +11,7 @@ const User =(props)=>{
             <div className="user-profile">
             <img alt="user picture" src={"https://robohash.org/"+props.username} className="userPic"></img>
             <Container value="User Info">
-                    <UserInfo major={props.major}></UserInfo>
+                    <UserInfo major={props.major} contact={props.contact}></UserInfo>
             </Container>
             </div>
         </div>
