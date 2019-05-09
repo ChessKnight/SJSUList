@@ -80,7 +80,8 @@ axios.put(`http://localhost:5000/updatestudygroup/${id}`,  updateStudyGroup)
       _id:"",
     }
     
-    axios.delete(`http://localhost:5000/studygroupdelete/${id}`, deleteStudyGroup ).then();
+    axios.delete(`http://localhost:5000/studygroupdelete/${id}`, deleteStudyGroup )
+    .then(window.location.reload());
     
 
 
