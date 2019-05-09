@@ -6,7 +6,7 @@ import SearchBar from '../Tools/SearchBar';
 import Sort from '../Tools/Sort';
 import Loader from '../Tools/Loader';
 
-import ItemForm from '../ItemForm/ItemForm.js';
+//import ItemForm from '../ItemForm/ItemForm.js';
 
 
 
@@ -114,8 +114,31 @@ class ItemCardList extends Component{
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <div className="add-item">
-               <button class="btn add-item-btn">Add Item for Sale</button> 
-               <hr></hr>
+
+                    
+             <div>
+             {/* If not logged in redirects to log in page */}
+
+                            <div>
+                                {!localStorage.getItem('jwtToken') && (
+                                    <div>
+                                        <a href="/login">
+                                        <button class="btn add-item-btn">Add Item for Sale!</button>
+                                        </a>
+                                    </div>)}
+                            </div>
+
+              {/* if logged it redirects to add item form  page */}
+                            <div>
+                                {localStorage.getItem('jwtToken') && (
+                                    <div>
+                                        <a href="/ItemForm">
+                                        <button class="btn add-item-btn">Add Item for Sale!</button>
+                                        </a>
+                                    </div>)}
+                            </div>
+                </div>
+                    
             </div> 
             <div className="search-filter-sort">
                 <SearchBar searchClicked={this.searchClicked} searching={this.searching}></SearchBar>
@@ -134,14 +157,13 @@ class ItemCardList extends Component{
                             
                         <ItemCard image= {this.state.data[i].imageSrc} body={this.state.data[i]._id} description={this.state.data[i].description}
                             price={this.state.data[i].price} contact={this.state.data[i].contact}
-                            name = {this.state.data[i].name} condition={this.state.data[i].condition}
+                            name = {this.state.data[i].name} condition={this.state.data[i].condition} itemName={this.state.data[i].itemName}
                         />
                         </div>
                         
                     );
                 })}
             </ul>
-            <Pager></Pager>
             </Loader>
             </div>
               

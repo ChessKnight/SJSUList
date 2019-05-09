@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import StudyGroupCard2 from "./StudyGroupCard2";
-import StudyGroupCard from "./StudyGroupCard";
+//import StudyGroupCard from "./StudyGroupCard";
 import './StudyGroup.css'
 import SearchBar from '../Tools/SearchBar';
 import axios from 'axios';
@@ -124,9 +124,9 @@ searching=(event)=>{
               <div>
                 {!localStorage.getItem('jwtToken') && (
                   <div>
-                    <li><a href="/login">
+                    <a href="/login">
                       <button class="button">Add Group Post!</button>
-                    </a></li>
+                    </a>
                   </div>)}
               </div>
 
@@ -134,9 +134,9 @@ searching=(event)=>{
               <div>
                 {localStorage.getItem('jwtToken') && (
                   <div>
-                    <li><a href="/addstudygroup">
+                    <a href="/addstudygroup">
                   <button class="button">Add Group Post!</button>
-                    </a></li>
+                    </a>
                   </div>)}
               </div>
         </div>

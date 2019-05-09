@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
-import { Button } from '@material-ui/core';
+//import { Button } from '@material-ui/core';
 
 const SearchBar = ({searchClicked, searching})=>{
 

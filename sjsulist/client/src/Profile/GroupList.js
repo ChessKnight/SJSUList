@@ -1,7 +1,7 @@
 import React from 'react';
 import StudyGroupCard2 from '../StudyGroupComponent/StudyGroupCard2';
 import Scroll from '../Container/Scroll';
-import { checkPropTypes } from 'prop-types';
+//import { checkPropTypes } from 'prop-types';
 
 const GroupList = (props)=>{
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
-import { TextField } from '@material-ui/core';
+//import { TextField } from '@material-ui/core';
 import './ItemForm.css';
 import axios from 'axios';
 
@@ -22,7 +22,7 @@ class ItemForm extends Component {
                 description: "",
                 price: "",
                 contact: "",
-                name: "",
+                name: localStorage.getItem('username'),
                 condition: ""
                 
             }
@@ -77,6 +77,7 @@ class ItemForm extends Component {
     }
 
     submitForm = (e) => {
+        
         e.preventDefault();
         const { imageSrc, itemName, description, price, contact, name, condition } = this.state
         const addNewItem = {
@@ -91,7 +92,7 @@ class ItemForm extends Component {
 
         const userId = localStorage.getItem('userId'); 
         axios.post(`http://localhost:5000/addItem/${userId}`, addNewItem)
-            .then(res => console.log(res.data));
+            .then(res => { console.log(res.data)});
 
     }
 
@@ -115,7 +116,7 @@ class ItemForm extends Component {
                     <div className="i-input" >
                         <div class="input-field col s20">
                         <h6>Item:</h6>
-                            <input placeholder="Calc textbook, it-84, etc." id='itemName' onChange={this.handleChange} type="text" class="validate"></input>
+                            <input placeholder="Calc textbook, it-84, etc." id='itemName' required="required" onChange={this.handleChange} type="text" class="validate"></input>
                         
                         </div>
                     </div>
@@ -124,7 +125,7 @@ class ItemForm extends Component {
                     <div className="i-input">
                         <div class="input-field col s10">
                         <h6>Category:</h6>
-                            <textarea placeholder="Books, calculator, computer, etc." id='description' onChange={this.handleChange}class="materialize-textarea" data-length="120"></textarea>
+                            <textarea placeholder="Books, calculator, computer, etc." id='description' required="required" onChange={this.handleChange}class="materialize-textarea" data-length="120"></textarea>
                             
                         </div>
                     </div>
@@ -133,7 +134,7 @@ class ItemForm extends Component {
                     <div className="i-input">
                         <div class="input-field col s10">
                         <h6>Price (USD):</h6>
-                            <input placeholder="Everything has a price..." id='price' onChange={this.handleChange} type="number" class="validate"></input>
+                            <input placeholder="Everything has a price..." id='price' required="required" onChange={this.handleChange} type="number" class="validate"></input>
                             
                         </div>
                     </div>
@@ -142,22 +143,42 @@ class ItemForm extends Component {
                 <div className="i-input">
                         <div class="input-field col s10">
                         <h6>Condition:</h6>
-                            <input placeholder="New, used, if other:please explain." id='condition' onChange={this.handleChange}type="text" class="validate"></input>
+                            <input placeholder="New, used, if other:please explain." id='condition' required="required" onChange={this.handleChange}type="text" class="validate"></input>
                             
                         </div>
                     </div>
+
+                    {/* Description */}
+                    <div className="i-input">
+                        <div class="input-field col s10">
+                            <h6>Description:</h6>
+                            <input placeholder="Description of the item" id='description' required="required" onChange={this.handleChange} type="text" class="validate"></input>
+
+                        </div>
+                    </div>
+
+                    {/* Name */}
+                    <div className="i-input">
+                        <div class="input-field col s10">
+                            <h6>Name: </h6>
+                            <input placeholder="your name." id='name' value={localStorage.getItem('username')} onChange={this.handleChange} required="required" type="text" class="validate"></input>
+
+                        </div>
+                    </div>
+               
                     
                     {/* Contact info */}
                     <div className="i-input">
                         <div class="input-field col s10">
                         <h6>Contact info:</h6>
-                            <input placeholder="Provide an email, you wish to be contacted." id='contact' onChange={this.handleChange}type="text" class="validate"></input>
+                            <input placeholder="Provide an email, you wish to be contacted." id='contact' required="required" onChange={this.handleChange} type="text" class="validate"></input>
                             
                         </div>
                     </div>
                 </div>
                         
-                <button class="btn waves-effect waves-light submit-button" type="submit" name="action">Put For Sale!
+                
+                <button class="btn waves-effect waves-light submit-button" type="submit" name="action"><a href="/StudyGroup" className="button-submit">Put For Sale!</a> 
                     <i class="material-icons right">attach_money</i>
                 </button>
 

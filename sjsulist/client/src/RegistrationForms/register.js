@@ -57,19 +57,19 @@ class Register extends Component {
               {/* registration field for name */}
               <div className="input-field">
                 <label htmlFor="text">Name</label>
-                <input type="text" id='name' onChange={this.handleChange} />
+            <input type="text" id='name' required="required" onChange={this.handleChange} />
               </div>
 
               {/* registration field for email */}
               <div className="input-field">
                 <label htmlFor="text">SJSU Email</label>
-                <input type="text" id='email' pattern=".+@sjsu.edu" onChange={this.handleChange} />
+            <input type="text" id='email' required="required" pattern=".+@sjsu.edu" onChange={this.handleChange} />
               </div>
 
               {/* registration field for student id */}
               <div className="input-field">
                 <label htmlFor="text">Student ID</label>
-                <input type="number" id='studentId' onChange={this.handleChange} />
+            <input type="number" id='studentId' required="required" onChange={this.handleChange} />
               </div>
 
               {/* <div className="input-field">
@@ -84,13 +84,13 @@ class Register extends Component {
              {/* registration field for major */}
               <div className="input-field">
                 <label htmlFor="text">Major</label>
-                <input type="text" id='studentMajor' onChange={this.handleChange} />
+            <input type="text" id='studentMajor' required="required" onChange={this.handleChange} />
               </div>
 
              {/* registration field for password */}
               <div className="input-field">
                 <label htmlFor="password">Password</label>
-                <input type="password" id='password' onChange={this.handleChange} />
+            <input type="password" id='password' onChange={this.handleChange} />
               </div>
 
               

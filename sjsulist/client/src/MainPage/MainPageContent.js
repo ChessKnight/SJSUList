@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Container from '../Container/Container';
-import ItemCard from '../ItemCardlistComponent/ItemCard';
+//import ItemCard from '../ItemCardlistComponent/ItemCard';
 import './MainPageContent.css';
 import NewItems from './NewItems';
 import Scroll from '../Container/Scroll';
