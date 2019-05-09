@@ -122,9 +122,9 @@ class ItemCardList extends Component{
                             <div>
                                 {!localStorage.getItem('jwtToken') && (
                                     <div>
-                                        <li><a href="/login">
+                                        <a href="/login">
                                         <button class="btn add-item-btn">Add Item for Sale!</button>
-                                        </a></li>
+                                        </a>
                                     </div>)}
                             </div>
 
@@ -132,9 +132,9 @@ class ItemCardList extends Component{
                             <div>
                                 {localStorage.getItem('jwtToken') && (
                                     <div>
-                                        <li><a href="/ItemForm">
+                                        <a href="/ItemForm">
                                         <button class="btn add-item-btn">Add Item for Sale!</button>
-                                        </a></li>
+                                        </a>
                                     </div>)}
                             </div>
                 </div>
