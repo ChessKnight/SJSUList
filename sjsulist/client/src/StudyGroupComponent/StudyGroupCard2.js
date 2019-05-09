@@ -56,7 +56,7 @@ return (
                     <div>
                         {(localStorage.getItem('username') === props.value[i].studyGroupPostedBy) && (
                             <div>
-                  <button class="button-del" type="submit" value={v} onClick={props.delete}>Delete Post</button>
+                  <button class="button-del" type="submit" id={props.value[i]._id} value={i} onClick={props.delete}>Delete Post</button>
                             </div>
                           )}
                       </div>

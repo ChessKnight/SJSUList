@@ -43,13 +43,12 @@ class StudyGroup extends Component {
 
 }
 studyGroup=(event)=>{
-  console.log("_____________________________");
   const index = event.target.value;
-  console.log(index);
+  
   const id = event.target.id;
-  console.log(id);
+  
   const userId = localStorage.getItem('userId'); 
-  console.log(userId);
+  
 
 //   event.preventDefault();
 var currentMembers = this.state.data[index].members;
@@ -69,21 +68,27 @@ axios.put(`http://localhost:5000/updatestudygroup/${id}`,  updateStudyGroup)
 //   console.log(event.target.value)
 }
 
-putData(a, updateStudyGroup){
-  axios.put(`http://localhost:5000/updatestudygroup/${a}`,  updateStudyGroup)
-  .then(res => console.log(res.data));
-}
-
 
 
 //study group delete option 
 
   deleteGroup  = (event) => {
+    const index = event.target.value;
+    const id = event.target.id;
+
+    var deleteStudyGroup={
+      _id:"",
+    }
+    
+    axios.delete(`http://localhost:5000/studygroupdelete/${id}`, deleteStudyGroup ).then();
     
 
 
 
+
   }
+
+ 
 
 
 
