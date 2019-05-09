@@ -3,20 +3,36 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import { Link } from 'react-router-dom'
 //import { createHashHistory } from 'history'
+import {withRouter} from 'react-router-dom';
 // export const history = createHashHistory()
 
 
 export class NavigationBar extends Component {
  
+  constructor(){
+    super();
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange(){
+    let path = `/`;
+        this.props.history.push(path);
+   
+}
 
   //clear token user name and id from browser storage
-  logoutOption() {
+  logoutOption = async event => {
+    
+        
         localStorage.removeItem('jwtToken');
         localStorage.removeItem('username');
-        localStorage.removeItem('userId');
+        localStorage.removeItem('userId')
+        this.props.history.push('/')
+        
+    
         //stays on the current page
         // history.push('/')
-        window.location.reload();
+        
   }
   getUserName(){
     localStorage.getItem('username');
@@ -68,11 +84,12 @@ export class NavigationBar extends Component {
                       </li>
 
                       {/* shows logout option if logged in */}
-                      {localStorage.getItem('jwtToken') && 
+                      {localStorage.getItem('jwtToken') &&  (
                          <li 
-                            onClick={this.logoutOption}>Logout
+                            onClick={this.logoutOption}
+                            >Logout
                          </li>
-                      }
+                      )}
 
 
 
@@ -84,6 +101,6 @@ export class NavigationBar extends Component {
   }
 }
 
-export default NavigationBar;
+export default withRouter(NavigationBar);
 
  
