@@ -5,26 +5,7 @@ const Welcome =()=>{
         <div>
             <p>
                 <h1>Welcome to SJSUList!</h1>
-                <h5>Turmoil has engulfed the
-Galactic Republic. The taxation
-of trade routes to outlying star
-systems is in dispute.
-
-Hoping to resolve the matter
-with a blockade of deadly
-battleships, the greedy Trade
-Federation has stopped all
-shipping to the small planet
-of Naboo.
-
-While the Congress of the
-Republic endlessly debates
-this alarming chain of events,
-the Supreme Chancellor has
-secretly dispatched two Jedi
-Knights, the guardians of
-peace and justice in the
-galaxy, to settle the conflict....</h5>
+                <h5>SJSUList is a web application to facilitate the trade process between students of SJSU. The web application is for SJSU students exclusively. The students are able to sell or buy used electronic items or books by using this platform. Another important feature that SJSUList have, students can find a study partner or study group, which can facilitate studying for the students.</h5>
             </p>
         </div>
     );
