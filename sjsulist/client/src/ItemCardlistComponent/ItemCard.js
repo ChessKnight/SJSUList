@@ -19,6 +19,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ItemButton from './ItemButton';
+import axios from 'axios';
 
 
 
@@ -51,11 +53,24 @@ const styles = theme => ({
   },
 });
 class ItemCard  extends React.Component{
-    state = { expanded: false};
+    state = { expanded: false, canDelete: false};
 
     handleExpandClick = () => {
       this.setState(state => ({ expanded: !state.expanded }));
     };
+componentDidMount(){
+  if(this.props.owner.includes(localStorage.getItem('userId'))){
+    this.setState({canDelete: true})
+  }
+}
+deleteItem=(event)=>{
+  var deleteItem={
+    _id:"",
+  }
+  console.log(this.props.body);
+  axios.delete(`http://localhost:5000/itemdelete/${this.props.body}`,  deleteItem)
+  .then(window.location.reload());
+}
   
     render() {
       const { classes } = this.props;
@@ -87,7 +102,7 @@ class ItemCard  extends React.Component{
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} disableActionSpacing>
-          
+            <ItemButton canDelete={this.state.canDelete} delete={this.deleteItem}></ItemButton>
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
