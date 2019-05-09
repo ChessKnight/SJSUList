@@ -1,6 +1,7 @@
 import React from 'react';
 import './StudyGroupCard.css'; 
 //import axios from "axios";
+import Time from 'react-time-format'
 
 const v = {
   id:"",
@@ -26,8 +27,9 @@ return (
                     <div class="header"> 
                       {/* title  */}
                         <h3 >  {props.value[i].title}</h3>
-                      {/* date */}
-                        <div>  {props.value[i].PostDate} </div> 
+
+                      {/* date  and time formatted*/}
+                     <div>  <Time value={props.value[i].PostDate} format="MM-DD-YYYY hh:mm:ss" /> </div> 
                     </div>
 
                     <div> Owner: {props.value[i].studyGroupPostedBy}</div>

@@ -114,8 +114,31 @@ class ItemCardList extends Component{
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <div className="add-item">
-               <button class="btn add-item-btn">Add Item for Sale</button> 
-               <hr></hr>
+
+                    
+             <div>
+             {/* If not logged in redirects to log in page */}
+
+                            <div>
+                                {!localStorage.getItem('jwtToken') && (
+                                    <div>
+                                        <li><a href="/login">
+                                        <button class="btn add-item-btn">Add Item for Sale!</button>
+                                        </a></li>
+                                    </div>)}
+                            </div>
+
+              {/* if logged it redirects to add item form  page */}
+                            <div>
+                                {localStorage.getItem('jwtToken') && (
+                                    <div>
+                                        <li><a href="/ItemForm">
+                                        <button class="btn add-item-btn">Add Item for Sale!</button>
+                                        </a></li>
+                                    </div>)}
+                            </div>
+                </div>
+                    
             </div> 
             <div className="search-filter-sort">
                 <SearchBar searchClicked={this.searchClicked} searching={this.searching}></SearchBar>
