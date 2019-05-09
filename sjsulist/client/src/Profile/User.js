@@ -9,7 +9,7 @@ const User =(props)=>{
             <h4 className="userName">{props.username}</h4>
             <hr></hr>
             <div className="user-profile">
-            <img alt="user picture" src="/images/profilepic.png" className="userPic"></img>
+            <img alt="user picture" src={"https://robohash.org/"+props.username} className="userPic"></img>
             <Container value="User Info">
                     <UserInfo major={props.major}></UserInfo>
             </Container>

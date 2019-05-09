@@ -13,6 +13,7 @@ class StudyGroup extends Component {
     super()
     this.state={
         data: [], 
+        members: [],
         searchString:'',
         constantData: [],
         loader: true,
@@ -27,6 +28,7 @@ class StudyGroup extends Component {
 
   //This filters the list based on the search
   searchClicked=(event)=>{
+    
     var c = this.state.constantData;
     var d = [];
     var s = this.state.searchString;
@@ -41,23 +43,26 @@ class StudyGroup extends Component {
 
 }
 studyGroup=(event)=>{
-  var a = event.target.value.substring(0,event.target.value.length- 1) ;
-  var b = event.target.value.substring(event.target.value.length- 1) ;
+  const index = event.target.value;
+  
+  const id = event.target.id;
+  
   const userId = localStorage.getItem('userId'); 
-var c = this.state.data[b].members;
-c.push(userId);
+  
+
 //   event.preventDefault();
-        
- const updateStudyGroup = {
-    members: c,
+var currentMembers = this.state.data[index].members;
+currentMembers.push(userId);
+console.log(this.state.data[index].members);
+ var updateStudyGroup = {
+  members: currentMembers,
 }
 
-console.log(updateStudyGroup.members[0]);
-
          
+axios.put(`http://localhost:5000/updatestudygroup/${id}`,  updateStudyGroup)
+  .then(res => console.log(res.data));
 
-axios.put(`http://localhost:5000/updatestudygroup/${a}`,  updateStudyGroup)
-.then(res => console.log(res.data));
+
 
     
 //   console.log(event.target.value)
@@ -68,11 +73,23 @@ axios.put(`http://localhost:5000/updatestudygroup/${a}`,  updateStudyGroup)
 //study group delete option 
 
   deleteGroup  = (event) => {
+    const index = event.target.value;
+    const id = event.target.id;
+
+    var deleteStudyGroup={
+      _id:"",
+    }
+    
+    axios.delete(`http://localhost:5000/studygroupdelete/${id}`, deleteStudyGroup )
+    .then(window.location.reload());
     
 
 
 
+
   }
+
+ 
 
 
 

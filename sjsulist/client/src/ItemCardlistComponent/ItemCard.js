@@ -58,7 +58,7 @@ class ItemCard  extends React.Component{
   
     render() {
       const { classes } = this.props;
-      const imgpic = "https://robohash.org/a" + this.props.userId;
+      const imgpic = "https://robohash.org/" + this.props.userId;
   
       return (
         <Card className={classes.card}>
