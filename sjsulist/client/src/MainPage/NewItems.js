@@ -18,7 +18,7 @@ const NewItems =(props)=>{
                             <div className="newItems">
                                 <ItemCard image= {props.data[i].imageSrc} body={props.data[i]._id} description={props.data[i].description}
                                 price={props.data[i].price} contact={props.data[i].contact}
-                                name = {props.data[i].name} condition={props.data[i].condition}
+                                name = {props.data[i].name} condition={props.data[i].condition} itemName={props.data[i].itemName}
                                 />
                             </div>
                         );

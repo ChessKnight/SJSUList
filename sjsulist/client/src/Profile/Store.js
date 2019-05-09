@@ -19,7 +19,7 @@ const Store =(props)=>{
                     return(
                         <ItemCard image= {props.items[i].imageSrc} body={props.items[i]._id} description={props.items[i].description}
                             price={props.items[i].price} contact={props.items[i].contact}
-                            name = {props.items[i].name} condition={props.items[i].condition}
+                            name = {props.items[i].name} condition={props.items[i].condition} itemName={props.items[i].itemName}
                         />
                     );
 

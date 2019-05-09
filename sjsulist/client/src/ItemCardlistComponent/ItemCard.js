@@ -87,7 +87,7 @@ class ItemCard  extends React.Component{
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} disableActionSpacing>
-                        
+          
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
