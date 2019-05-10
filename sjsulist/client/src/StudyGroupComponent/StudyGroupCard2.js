@@ -56,10 +56,19 @@ return (
             
            
             <div>
+            {/* when not logged in redirects to login page */}
+                  <div>
+                    {!localStorage.getItem('jwtToken') && (
+                      <div>
+                        <a href="/login">
+                          <button class="button-main">Join Study Group!</button>
+                        </a>
+                      </div>)}
+                  </div>
 
                     {/* Join study group shows when post by id is not same */}
                     <div>
-                      {(localStorage.getItem('username') !== props.value[i].studyGroupPostedBy) && (
+              {(localStorage.getItem('username') !== props.value[i].studyGroupPostedBy) && (localStorage.getItem('jwtToken')) && (
                         <div>
                   <button class="button-main" type="submit"  id={props.value[i]._id} value={i} onClick={ props.join} 
                   
